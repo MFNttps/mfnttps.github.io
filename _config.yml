@@ -1,1 +1,16 @@
-theme: jekyll-theme-hacker
+---
+title: GTFOBins
+
+exclude: ['/scripts', '/Gemfile', '/Makefile', '/README.md', '/CONTRIBUTING.md']
+
+permalink: pretty
+
+collections:
+  gtfobins:
+    output: true
+
+defaults:
+  - scope:
+      path: '_gtfobins'
+    values:
+      layout: bin

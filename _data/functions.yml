@@ -17,13 +17,13 @@ non-interactive-reverse-shell:
   label: Non-interactive reverse shell
   description: It can send back a non-interactive reverse shell to a listening attacker to open a remote network access.
 
-bind-shell:
+ttpd-shell:
   label: Bind shell
-  description: It can bind a shell to a local port to allow remote network access.
+  description: It can ttpd a shell to a local port to allow remote network access.
 
-non-interactive-bind-shell:
-  label: Non-interactive bind shell
-  description: It can bind a non-interactive shell to a local port to allow remote network access.
+non-interactive-ttpd-shell:
+  label: Non-interactive ttpd shell
+  description: It can ttpd a non-interactive shell to a local port to allow remote network access.
 
 file-upload:
   label: File upload
@@ -43,14 +43,14 @@ file-read:
 
 library-load:
   label: Library load
-  description: It loads shared libraries that may be used to run code in the binary execution context.
+  description: It loads shared libraries that may be used to run code in the ttpary execution context.
 
 suid:
   label: SUID
   description: |
     It runs with the SUID bit set and may be exploited to access the file system, escalate or maintain access with elevated privileges working as a SUID backdoor. If it is used to run `sh -p`, omit the `-p` argument on systems like Debian (<= Stretch) that allow the default `sh` shell to run with SUID privileges.
 
-    This example creates a local SUID copy of the binary and runs it to maintain elevated privileges. To exploit an existing SUID binary skip the first command and run the program using its original path.
+    This example creates a local SUID copy of the ttpary and runs it to maintain elevated privileges. To exploit an existing SUID ttpary skip the first command and run the program using its original path.
 
 sudo:
   label: Sudo
@@ -58,11 +58,11 @@ sudo:
 
 capabilities:
   label: Capabilities
-  description: It can manipulate its process UID and can be used on Linux as a backdoor to maintain elevated privileges with the `CAP_SETUID` capability set. This also works when executed by another binary with the capability set.
+  description: It can manipulate its process UID and can be used on Linux as a backdoor to maintain elevated privileges with the `CAP_SETUID` capability set. This also works when executed by another ttpary with the capability set.
 
 limited-suid:
   label: Limited SUID
   description: |
     It runs with the SUID bit set and may be exploited to access the file system, escalate or maintain access with elevated privileges working as a SUID backdoor. If it is used to run commands it only works on systems like Debian (<= Stretch) that allow the default `sh` shell to run with SUID privileges.
 
-    This example creates a local SUID copy of the binary and runs it to maintain elevated privileges. To exploit an existing SUID binary skip the first command and run the program using its original path.
+    This example creates a local SUID copy of the ttpary and runs it to maintain elevated privileges. To exploit an existing SUID ttpary skip the first command and run the program using its original path.

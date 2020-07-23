@@ -86,14 +86,14 @@ h2, h3, h4, h5, h5 {
     }
 }
 
-// binary list and search
+// ttp-library list and search
 
-#bin-search-wrapper {
+#ttp-search-wrapper {
     margin: 50px 0;
     padding: 10px 0;
     position: relative; // XXX needed for tooltip sizing
 
-    #bin-search-filters {
+    #ttp-search-filters {
         text-align: center;
 
         a {
@@ -121,7 +121,7 @@ h2, h3, h4, h5, h5 {
         }
     }
 
-    #bin-search {
+    #ttp-search {
         margin-top: 25px;
         padding: 1em;
         font-size: 1rem;
@@ -132,7 +132,7 @@ h2, h3, h4, h5, h5 {
     }
 }
 
-#bin-table {
+#ttp-table {
     width: 100%;
 
     th, td {
@@ -188,7 +188,7 @@ h2, h3, h4, h5, h5 {
     }
 }
 
-// bin examples
+// ttp examples
 
 .examples {
     display: table;
@@ -224,7 +224,7 @@ h2, h3, h4, h5, h5 {
     margin-bottom: $margin;
 }
 
-.bin-name {
+.ttp-name {
     font-family: monospace;
     font-size: 1.2rem;
 }

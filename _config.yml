@@ -6,11 +6,11 @@ exclude: ['/scripts', '/Gemfile', '/Makefile', '/README.md', '/CONTRIBUTING.md']
 permalink: pretty
 
 collections:
-  gtfobins:
+  mfnttps:
     output: true
 
 defaults:
   - scope:
-      path: '_gtfobins'
+      path: '_mfnttps'
     values:
-      layout: bin
+      layout: ttp

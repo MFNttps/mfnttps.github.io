@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/ttp/env python3
 import jsonschema
 import os
 import sys
@@ -57,4 +57,4 @@ def validate_directory(root):
             sys.exit(1)
 
 if __name__ == '__main__':
-    validate_directory("_gtfobins/")
+    validate_directory("_mfnttps/")

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: GTFOBins
+title: MFNttps
 ---
 
 ![logo](/assets/logo.png){:.logo}
@@ -15,9 +15,9 @@ This was inspired by the [LOLBAS][] project for Windows and the [GTFOBins][https
 
 [functions]: /functions/
 [LOLBAS]: https://lolbas-project.github.io/
-[collaborative]: https://github.com/GTFOBins/GTFOBins.github.io/graphs/contributors
+[collaborative]: https://github.com/MFNttps/MFNttps.github.io/graphs/contributors
 [contribute]: /contribute/
 [norbemi]: https://twitter.com/norbemi
 [cyrus_and]: https://twitter.com/cyrus_and
 
-{% include bin_table.html %}
+{% include ttp_table.html %}

@@ -1,6 +1,6 @@
 ---
 functions:
-  lateral-movement:
+  enumeration script:
     - description: Log into an ssh server and give it instructions to redirect traffic.
       code: |
         Local:

@@ -6,7 +6,7 @@ enumeration:
   description: It can be used to discover specific details to help you understand vulnerabilities and exploitability.
 
 script:
-  label: Command
+  label: Script
   description: The technique is not standalone and depends on other techniques.
 
 lateral-movement:

@@ -10,5 +10,5 @@ functions:
     - description: Simple wrapper script
       code: |
         Dependency: nmap
-        Link: <a href='https://nmap.org/'>nmap</a>
+        Link: [nmap](https://nmap.org/)
 ---

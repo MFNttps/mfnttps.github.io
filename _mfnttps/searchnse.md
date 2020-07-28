@@ -8,4 +8,7 @@ functions:
         searchnse -v -f "smb vuln"
   script:
     - description: Simple wrapper script
+      code: |
+        Dependency: nmap
+        Link: <a href='https://nmap.org/'>nmap</a>
 ---

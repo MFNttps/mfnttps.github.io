@@ -5,7 +5,7 @@ functions:
       code: |
         searchnse -f "http wordpress"
         searchnse -v -f smb <-- '-f' is always last
-        searchnse -v -f "smb vuln"
+        searchnse -v -f "smb vuln" <-- 2 or more filters are always in quotes
   script:
     - description: Simple wrapper script
       code: |

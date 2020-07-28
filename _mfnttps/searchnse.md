@@ -10,6 +10,7 @@ functions:
     - description: Simple wrapper script
       code: |
         Dependency: nmap
-      link: | 
+    - resources:
         https://nmap.org/
+
 ---

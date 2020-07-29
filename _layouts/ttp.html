@@ -14,6 +14,7 @@ layout: common
 {% assign function_id = function_pair[0] %}
 {% assign function = function_pair[1] %}
 {% assign examples = page.functions[function_id] %}
+{% assign resources = page.resources %}
 {% unless examples %}{% continue %}{% endunless %}
 
 <h2 id="{{ function_id }}" class="function-name">{{- function.label -}}</h2>
@@ -42,7 +43,7 @@ sudo setcap cap_setuid+ep {{ ttp_name }}
     {% endfor %}
 
 </ul>
-{{ function.resources | markdownify }}
+{{ resources | markdownify }}
 
 
 {% endfor %}

@@ -11,6 +11,7 @@ functions:
     - description:
       code: |
         Dependency: nmap
-resources: https://nmap.org/
+resources: |
+  https://nmap.org/
 
 ---

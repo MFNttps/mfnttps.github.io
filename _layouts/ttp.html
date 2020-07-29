@@ -36,13 +36,13 @@ sudo setcap cap_setuid+ep {{ ttp_name }}
     <li>
         {{ example.description | markdownify }}
         <pre><code>{{- code | strip -}}</code></pre>
-        
+
     </li>
 
     {% endfor %}
 
 </ul>
-{{ example.resources | markdownify }}
+{{ function.resources | markdownify }}
 
 
 {% endfor %}

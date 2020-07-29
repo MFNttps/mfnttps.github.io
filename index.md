@@ -7,11 +7,11 @@ title: MFNttps
 
 MFNttps is a one stop shop for all your tactics techniques and procedure needs.
 
-The project collects different technique for enumeration, gaining access, maintaining access, etc etc.  When you need <strike>mother f*</strike> ttps, visit here and see if this can help. See the full list of [functions](/functions/).
+The project collects different technique for enumeration, gaining access, maintaining access, etc etc.  When you need <strike>mother f\*</strike> ttps, visit here and see if this can help. See the full list of [functions](/functions/).
 
-This was inspired by the [LOLBAS][] project for Windows and the [GTFOBins][https://gtfobins.github.io/] project for Unix.
+This was inspired by the [LOLBAS][] project for Windows and the [GTFOBins](https://gtfobins.github.io/) project for Unix.
 
-***work in progress**
+***work in progress***
 
 [functions]: /functions/
 [LOLBAS]: https://lolbas-project.github.io/

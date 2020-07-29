@@ -7,6 +7,7 @@ functions:
         ssh -f -N -L [bind_address:]port:host:hostport [username@address]
         ssh -f -N -L 0.0.0.0:445:172.16.149.5:445 student@192.168.149.44
     - description: Remote SSH port fowarding traffic.
+      code: |
         - From the P.O.V of a current access: [you do this]:[I'll do this]
         ssh -f -N -R [bind_address:]port:host:hostport [username@address]
         - Login to 192.168.119.149 with username 'kali'

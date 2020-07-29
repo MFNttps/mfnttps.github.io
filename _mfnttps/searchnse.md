@@ -12,5 +12,4 @@ functions:
         Dependency: nmap
 resources: |
   https://nmap.org/
-
 ---

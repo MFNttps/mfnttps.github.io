@@ -1,14 +1,12 @@
 ---
 functions:
   lateral-movement:
-    - description: Log into an ssh server and give it instructions to redirect traffic.
+    - description: Local SSH port fowarding traffic.
       code: |
-        Local:
         - Instruct x.44 to forward all requests to 0.0.0.0:445 and redirect to 172.16.149.5:445
         ssh -f -N -L [bind_address:]port:host:hostport [username@address]
         ssh -f -N -L 0.0.0.0:445:172.16.149.5:445 student@192.168.149.44
-
-        Remote:
+    - description: Remote SSH port fowarding traffic.
         - From the P.O.V of a current access: [you do this]:[I'll do this]
         ssh -f -N -R [bind_address:]port:host:hostport [username@address]
         - Login to 192.168.119.149 with username 'kali'

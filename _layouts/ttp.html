@@ -45,7 +45,7 @@ sudo setcap cap_setuid+ep {{ ttp_name }}
 </ul>
 {% endfor %}
 {% if resources != "" %}
-<h2 id="resources" class="resources">Resources</h2>
-<pre><code>{{ resources | markdownify }}</code></pre>
+<h3 id="resources" class="resources">Resources</h3>
+<pre>{{ resources | markdownify }}</pre>
 {% endif %}
 

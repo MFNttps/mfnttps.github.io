@@ -20,7 +20,5 @@ If you want to contribute, then [contribute]
 [GTFOBins]: https://gtfobins.github.io/
 [collaborative]: https://github.com/MFNttps/MFNttps.github.io/graphs/contributors
 [contribute]: /contribute/
-[norbemi]: https://twitter.com/norbemi
-[cyrus_and]: https://twitter.com/cyrus_and
 
 {% include ttp_table.html %}

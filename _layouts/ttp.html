@@ -44,7 +44,7 @@ sudo setcap cap_setuid+ep {{ ttp_name }}
 
 </ul>
 {% endfor %}
-{% if resources empty %}
+{% if resources %}
 <h3 id="resources" class="resources">Resources</h3>
 <pre>{{ resources | strip }}</pre>
 {% endif %}

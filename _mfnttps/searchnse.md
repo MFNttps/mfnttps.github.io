@@ -1,7 +1,8 @@
 ---
+description: Search the nmap script engine database
 functions:
   enumeration:
-    - description: Search the nmap script engine database.
+    - description: 
       code: |
         searchnse -f "http wordpress"
         searchnse -v -f smb <-- '-f' is always immediately before your filters
@@ -12,4 +13,5 @@ functions:
         Dependency: nmap
 resources: |
   https://nmap.org/
+  https://github.com/MidnightSeer/scripts/blob/master/searchnse
 ---

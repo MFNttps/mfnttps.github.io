@@ -38,5 +38,13 @@ functions:
         (2) Traffic will reach local port 8888 and hit the socks proxy:
         ssh -f -N -R 0.0.0.0:2222:127.0.0.1:8888 kali@192.168.119.149
         ssh -N -D 8888 127.0.0.1
+    - description: Create key-pairs to avoid password prompts
+      code: |
+        1. ssh-keygen ([enter] through all prompts)
+        2. copy public key
+        3. only allow port forwarding (no key hijack):
+        - add to ~/.ssh/authorized_keys
+        from="10.11.1.250",command="echo 'This account can only be used for port forwarding'",no-agent-forwarding,no-X11-forwarding,no-pty ssh-rsa <pub key>
+        4. add private key to system and append "-i <key>" to all ssh commands
 
 ---

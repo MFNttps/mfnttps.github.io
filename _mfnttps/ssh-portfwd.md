@@ -1,6 +1,6 @@
 ---
 functions:
-  lateral-movement:
+  Pivoting:
     - description: Local SSH port fowarding
       code: |
         Login to 192.168.119.149 with username 'kali' and instruct x.44 to forward all 

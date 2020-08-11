@@ -9,9 +9,13 @@ script:
   label: Script
   description: The technique is not standalone and depends on other techniques.
 
+pivoting:
+  label: Pivoting
+  description: It can help redirect traffic to otherwise unreachable end-points.
+
 lateral-movement:
   label: Lateral Movement
-  description: It can help redirect traffic to otherwise unreachable end-points.
+  description: Moving around to additional connected system normally in an internal network.
 
 gain-access:
   label: Gain Access

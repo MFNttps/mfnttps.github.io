@@ -26,7 +26,7 @@ privilege-escalation:
   description: It can help to gain a higher permisison access level.
 
 ttp-blog:
-  label: Gain Access
+  label: TTP Blog
   description: It can either exploit a vulnerability or leverage credentials to gain access.
 
 shell:

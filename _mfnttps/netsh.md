@@ -1,6 +1,6 @@
 ---
 functions:
-  Pivoting:
+  pivoting:
     - description: View Windows port forwarding rules
       code: |
         netsh interface portproxy show v4tov4

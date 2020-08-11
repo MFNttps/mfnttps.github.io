@@ -4,8 +4,6 @@ functions:
     - description: View Windows port forwarding rules
       code: |
         netsh interface portproxy show v4tov4
-        netsh advfirewall firewall show rule <rulename>
-        netsh advfirewall firewall show rule all direction=out
     - description: View Windows firewall rules
       code: |
         netsh advfirewall firewall show rule <rulename>

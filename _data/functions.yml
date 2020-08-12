@@ -32,3 +32,7 @@ ttp-blog:
 shell:
   label: Pop a Shell
   description: It can help gain a bind or reverse connection to spawn an (psuedo-)interactive prompt for code execution.
+
+ttp-tip:
+  label: TTP Tip
+  description: This is a tip that can help you run through other TTPs a little more smartly.

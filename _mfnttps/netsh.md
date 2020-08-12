@@ -17,7 +17,8 @@ functions:
     - description: Add a Windows firewall rule
       code: |
         netsh advfirewall firewall add rule name="forward_port_rule" protocol=TCP dir=in localip=10.11.0.22 localport=4455 action=allow
-        netsh advfirewall firewall add rule name="forward_port_rule" protocol=TCP dir=in remoteip=10.11.0.22 remoteport=4455 action=allow
+        netsh advfirewall firewall add rule name="forward_port_rule" protocol=TCP dir=out localport=53 action=allow
+        NOTE: you can remove the "localip" argument to whitelist all IPs
     - description: Delete a Windows port forwarding rule
       code: |
         netsh advfirewall firewall delete rule name="your rule name" dir=in

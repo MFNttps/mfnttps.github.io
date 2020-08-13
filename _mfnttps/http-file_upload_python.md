@@ -15,8 +15,10 @@ functions:
           -n, --no-ssl          do not serve https / ssl
 
         UPLOAD:
-          (1) curl -k -i -X POST -F 'filename=@<filename>' -F 'name=file' http(s)://<ip>:<port>
-          (2) manually browsing to the ip and port
+          (1) python3 http-server.py
+          (2) curl -k -i -X POST -F 'filename=@<filename>' -F 'name=file' http(s)://<ip>:<port>
+          (3) manually browsing to the ip and port
+          (4) profit!
 resources: |
   https://raw.githubusercontent.com/MidnightSeer/scripts/master/http-server.py
 

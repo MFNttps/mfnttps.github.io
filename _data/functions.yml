@@ -30,7 +30,7 @@ ttp-blog:
   description: It can either exploit a vulnerability or leverage credentials to gain access.
 
 shell:
-  label: Pop a Shell
+  label: Pop-a-Shell
   description: It can help gain a bind or reverse connection to spawn an (psuedo-)interactive prompt for code execution.
 
 file-transfer:

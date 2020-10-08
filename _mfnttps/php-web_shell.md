@@ -4,6 +4,6 @@ functions:
     - description: php web shell
       code: |
         https://{address}/shell.php?cmd=whoami
-resources: |
+resources:
   https://raw.githubusercontent.com/MidnightSeer/scripts/master/php_web_shell.php
 ---

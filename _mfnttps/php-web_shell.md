@@ -1,7 +1,7 @@
 ---
 functions:
   shell:
-    - description: php web shell
+    - description: php web shell to control a system from the web
       code: |
         https://{address}/shell.php?cmd=whoami
 resources:

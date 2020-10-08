@@ -36,5 +36,4 @@ functions:
         wkssvc
         PIPE_EVENTROOT\CIMV2SCM EVENT PROVIDER
         db2remotecmd
-
 ---

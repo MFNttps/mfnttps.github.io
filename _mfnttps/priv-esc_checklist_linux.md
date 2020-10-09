@@ -2,15 +2,16 @@
 functions:
   privilege-escalation:
     - description: Simplistic checklist for linux privilege escalation
-      code: |
-        [ ] whoami
-        [ ] id
+      [ ] whoami
+      [ ] id
         [ ] cat /etc/passwd
         [ ] hostname
         [ ] cat /etc/issue
         [ ] cat /etc/*-release
         [ ] cat /proc/version
         [ ] env
+      code: |
+        
         sudo -l
         uname -a
         ps aux

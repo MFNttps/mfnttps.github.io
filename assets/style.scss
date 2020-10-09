@@ -253,11 +253,13 @@ h2, h3, h4, h5, h5 {
 // checkbox
 
 /* Base for label styling */
+/*
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
   position: absolute;
   left: -9999px;
 }
+*/
 [type="checkbox"]:not(:checked) + label,
 [type="checkbox"]:checked + label {
   position: relative;

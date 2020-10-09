@@ -1,7 +1,7 @@
 ---
 functions:
   shell:
-    - description: WAR web shell (in jsp format)
+    - description: WAR and jsp web shell
       
 ---
 code: |

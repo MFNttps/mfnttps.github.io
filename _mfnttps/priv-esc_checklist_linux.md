@@ -2,7 +2,7 @@
 functions:
   privilege-escalation:
     - description: Simplistic and standard checklist for linux privilege escalation, in no particular order
-      code:
+      code: |
         whoami
         id
         cat /etc/passwd

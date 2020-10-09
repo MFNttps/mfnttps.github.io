@@ -4,7 +4,7 @@ functions:
     - description: Simplistic and standard checklist for linux privilege escalation, in no 
       particular order
       code: | 
-        whoami
+        {% raw %}whoami
         id
         cat /etc/passwd
         hostname
@@ -50,5 +50,5 @@ functions:
           diff <(echo "$old_process") <(echo "$new_process") | grep [\<\>]
           sleep 1
           old_process=$new_process
-        done
+        done{% endraw %}
 ---

@@ -35,7 +35,7 @@ sudo setcap cap_setuid+ep {{ ttp_name }}
 {% endcapture %}
 
     <li>
-        {{ example.description | markdownify }}
+        {{ example.description  }}
         <pre id="code"><code>{{- code | strip -}}</code></pre>
 
     </li>

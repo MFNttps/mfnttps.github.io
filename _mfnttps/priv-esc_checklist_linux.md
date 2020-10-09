@@ -1,8 +1,7 @@
 ---
 functions:
   privilege-escalation:
-    - description: Simplistic and standard checklist for linux privilege escalation, in no 
-      particular order
+    - description: Simplistic and standard checklist for linux privilege escalation, in no particular order
       code:
         whoami
         id

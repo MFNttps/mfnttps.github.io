@@ -4,7 +4,7 @@ functions:
     - description: WAR web shell (in jsp format)
       code: |
         (1) File Structure:
-        	├── shell.jsp
+        	── shell.jsp
 			    └── WEB-INF
 		    	    └── web.xml
 		    (2) jar -cf shell.war *

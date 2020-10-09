@@ -4,15 +4,15 @@ functions:
     - description: Simplistic and standard checklist for linux privilege escalation, in no particular order
       code: |
         - [ ] whoami
-        id
-        cat /etc/passwd
-        hostname
-        cat /etc/issue
-        cat /etc/*-release
-        cat /proc/version
-        env
-        sudo -l
-        uname -a
+        - [ ] id
+        - [ ] cat /etc/passwd
+        - [ ] hostname
+        - [ ] cat /etc/issue
+        - [ ] cat /etc/*-release
+        - [ ] cat /proc/version
+        - [ ] env
+        - [ ] sudo -l
+        - [ ] uname -a
         ps aux
         ip a
         ifconfig

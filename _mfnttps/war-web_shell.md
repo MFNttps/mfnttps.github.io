@@ -2,7 +2,9 @@
 functions:
   shell:
     - description: WAR web shell (in jsp format)
-      code: |
+      
+---
+code: |
         (1) File Structure:
         	── shell.jsp
 			    ── WEB-INF
@@ -13,4 +15,3 @@ functions:
 resources:
   https://raw.githubusercontent.com/MidnightSeer/scripts/master/shell.jsp
   https://raw.githubusercontent.com/MidnightSeer/scripts/master/web.xml
----

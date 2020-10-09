@@ -17,7 +17,7 @@ functions:
         ps aux
         ip a
         ifconfig
-        /sbin/route #routel
+        /sbin/route
         netstat -plant
         find / -type f -perm -2 2>/dev/null | grep -v "^/proc/"                     #world writable
         find / -user root -perm -002 -type f 2>/dev/null | grep -v "^/proc/"     #world writable ownd by root

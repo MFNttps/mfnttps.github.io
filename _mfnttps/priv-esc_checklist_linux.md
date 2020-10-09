@@ -6,3 +6,4 @@ functions:
         - [ ] whoami
       
 ---
+- [ ] whoami

@@ -3,8 +3,8 @@ functions:
   privilege-escalation:
     - description: |
       Simplistic checklist for linux privilege escalation
-      - [ ] whoami
-      - [ ] id
+      [ ] whoami
+      [ ] id
         [ ] cat /etc/passwd
         [ ] hostname
         [ ] cat /etc/issue

@@ -4,6 +4,4 @@ functions:
     - description: Simplistic checklist for linux privilege escalation
       [ ] whoami
       
-resources: |
-      
 ---

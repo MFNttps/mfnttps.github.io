@@ -23,7 +23,7 @@ gain-access:
 
 privilege-escalation:
   label: Privilege Escalation
-  description: It can help to gain a higher permisison access level.
+  description: It can help to gain a higher permission access level.
 
 ttp-blog:
   label: TTP Blog

@@ -3,7 +3,7 @@ functions:
   privilege-escalation:
     - description: Simplistic and standard checklist for linux privilege escalation, in no particular order
       code: |
-        Standard:
+        #Standard:
         - [ ] whoami
         - [ ] id
         - [ ] cat /etc/passwd
@@ -29,7 +29,7 @@ functions:
         - [ ] lsmod
         - [ ] echo $PATH
 
-        Extended:
+        #Extended:
         - [ ] find / -type f -perm -2 2>/dev/null | grep -v "^/proc/"                     #world writable
         - [ ] find / -user root -perm -002 -type f 2>/dev/null | grep -v "^/proc/"     #world writable ownd by root
         - [ ] ls -al $(find / -perm -1000 -type d 2>/dev/null)   # Sticky bit - Only the owner of the directory or the owner of a file can delete or rename here.

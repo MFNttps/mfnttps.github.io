@@ -28,7 +28,7 @@ functions:
         - [ ] /bin/lsblk
         - [ ] lsmod
         - [ ] echo $PATH
-        
+
         Extended:
         - [ ] find / -type f -perm -2 2>/dev/null | grep -v "^/proc/"                     #world writable
         - [ ] find / -user root -perm -002 -type f 2>/dev/null | grep -v "^/proc/"     #world writable ownd by root
@@ -54,3 +54,4 @@ functions:
           old_process=$new_process
         done
 ---
+

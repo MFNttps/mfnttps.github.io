@@ -47,4 +47,19 @@ functions:
         from="10.11.1.250",command="echo 'This account can only be used for port forwarding'",no-agent-forwarding,no-X11-forwarding,no-pty ssh-rsa <pub key>
         4. add private key to system and append "-i <key>" to all ssh commands
 
+        :: # Set Variable ::
+        Set Key="C:\xampp\htdocs\key"
+
+        :: # Remove Inheritance ::
+        Cmd /c Icacls %Key% /c /t /Inheritance:d
+
+        :: # Set Ownership to Owner ::
+        Cmd /c Icacls %Key% /c /t /Grant %UserName%:F
+
+        :: # Remove All Users, except for Owner ::
+        Cmd /c Icacls %Key% /c /t /Remove Administrator "Authenticated Users" BUILTIN\Administrators BUILTIN Everyone System Users
+
+        :: # Verify ::
+        Cmd /c Icacls %Key%
+
 ---

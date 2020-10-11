@@ -6,8 +6,7 @@ functions:
         gwmi win32_process | select name, Handle, CommandLine | format-table -autosize
         get-process | select ID,Name,Path | format-table -autosize
 
-
-        
+       
         filter Get-ProcessOwner
 		{
 		  $id = $_.ID

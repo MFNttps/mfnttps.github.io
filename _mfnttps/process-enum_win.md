@@ -5,6 +5,6 @@ functions:
       code: |
         gwmi win32_process | select name, Handle, CommandLine | format-table -autosize
         
-        get-process | select ID,Name,Path | format-table -autosize
+        get-process | select ID,Name,Path | sort-object Id | format-table -autosize
 
 ---

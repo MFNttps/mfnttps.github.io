@@ -1,6 +1,6 @@
 ---
 functions:
-  privilege-escalation:
+  enumeration:
     - description: Get powershell command history
       code: |
         Get Location: (Get-PSReadlineOption).HistorySavePath

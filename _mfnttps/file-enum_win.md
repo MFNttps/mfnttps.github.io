@@ -1,10 +1,13 @@
 ---
 functions:
   enumeration:
-    - description: Get running processes, handles, and command line parameters
+    - description: Perform file searching on Windows
       code: |
-        gwmi win32_process | select name, Handle, CommandLine | format-table -autosize
-        
-        get-process | select ID,Name,Path | sort-object Id | format-table -autosize
+        Get-ChildItem -Path C:\Test
 
+        Get-ChildItem -Path C:\Test\*.bat -Recurse -Force
+
+        Get-ChildItem -Path ./* -Include *.txt,*.bat
+resources:|
+  https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7
 ---

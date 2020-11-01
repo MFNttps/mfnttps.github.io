@@ -8,6 +8,7 @@ functions:
         - [ ] whoami
         - [ ] id
         - [ ] cat /etc/passwd
+        - [ ] cat /etc/group
         - [ ] hostname
         - [ ] cat /etc/issue
         - [ ] cat /etc/*-release

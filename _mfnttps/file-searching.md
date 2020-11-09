@@ -1,8 +1,11 @@
 ---
 functions:
   enumeration:
-    - description: Perform file searching on Windows
+    - description: Perform file searching
       code: |
+        
+      	WINDOWS:
+      	--------
         Get-ChildItem -Path C:\Test
 
         Get-ChildItem -Path C:\Test\*.bat -Recurse -Force

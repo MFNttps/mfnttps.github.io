@@ -12,7 +12,7 @@ functions:
         Get-ChildItem -Path ./Data* -Include *.* -Recurse |  Where-Object {$_.LastWriteTime -gt (get-date -month 7 -day 4)}
 
         Get-ChildItem -Path ./Data* -Recurse |  Where-Object {$_.LastWriteTime -gt (get-date -month 7 -day 4) -and $_.Attributes -notcontains "Directory"}
-resources: |
+resources:
   https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7
   https://www.pdq.com/blog/using-get-childitem-find-files/
 ---

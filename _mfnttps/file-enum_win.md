@@ -4,7 +4,6 @@ functions:
     - description: Perform file searching on Windows
       code: |
         WINDOWS
-      	--------
         Get-ChildItem -Path C:\Test
 
         Get-ChildItem -Path C:\Test\*.bat -Recurse -Force

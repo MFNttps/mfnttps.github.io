@@ -14,6 +14,8 @@ functions:
 
         Get-ChildItem -Path ./Data* -Recurse |  Where-Object {$_.LastWriteTime -gt (get-date -month 7 -day 4) -and $_.Attributes -notcontains "Directory"}
 
+        findstr /SI /M "password" *.xml *.i.i *.txt *.bat
+
         NIX
         find $directory -type f -name "*.sh" 2>/dev/null
 resources:

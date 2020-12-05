@@ -7,7 +7,7 @@ Tactic, Technique, and Procedure
 
 ## Structure
 
-Each MFNttp is defined in a file in the [`_mfnttps/`] folder named as `<ttpary name>.md`, such file consists only of a [YAML] front matter which describes the ttpary and its functions.
+Each MFNttp is defined in a file in the [`_mfnttps/`] folder named as `<ttp name>.md`, such file consists only of a [YAML] front matter which describes the ttpary and its functions.
 
 The full syntax is the following:
 
@@ -50,5 +50,5 @@ like 'searchnse' and 'searchsploit'
 Pull requests adding new functions in [`_data/functions.yml`] are allowed and subjected to project maintainers vetting.
 
 [YAML]: http://yaml.org/
-[`_mfnttps/`]: https://github.com/GTFOBins/GTFOBins.github.io/tree/master/_mfnttps
-[`_data/functions.yml`]: https://github.com/GTFOBins/GTFOBins.github.io/blob/master/_data/functions.yml
+[`_mfnttps/`]: https://github.com/MFNttps/MFNttps.github.io/tree/master/_mfnttps
+[`_data/functions.yml`]: https://github.com/MFNttps/MFNttps.github.io/blob/master/_data/functions.yml

@@ -18,6 +18,8 @@ functions:
 
         NIX
         find $directory -type f -name "*.sh" 2>/dev/null
+
+        grep <string> -irl <path>
 resources:
   https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7
   

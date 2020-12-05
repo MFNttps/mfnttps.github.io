@@ -9,6 +9,7 @@ functions:
         -L --> username list
         -p --> password
         -P --> password list
+        -f --> target
         -t --> threads
         -s --> port
         http-get --> method

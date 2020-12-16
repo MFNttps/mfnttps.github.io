@@ -25,7 +25,7 @@ functions:
 
         get(){
         file=$1
-        ip="10.10.14.8
+        ip="10.10.14.8"
         port="8080"
         #echo $file $ip $port
         output=$(curl -k -i -X POST -F filename=@"$file" -F name=file "http://$ip:$port")

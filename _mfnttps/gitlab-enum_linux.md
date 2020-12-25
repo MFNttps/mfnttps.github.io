@@ -1,7 +1,7 @@
 ---
 functions:
   privilege-escalation:
-    - description: Simple Gitlab Enumeration
+    - description: Simple Gitlab Privesc Technique
       code: |
         Dump the Database:
         gitlab-rails runner 'User.where.not(username: "peasssssssss").each { |u| pp u.attributes }'

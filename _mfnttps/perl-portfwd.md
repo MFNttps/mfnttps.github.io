@@ -1,7 +1,7 @@
 ---
 functions:
   pivoting:
-    - description: Local SSH port fowarding
+    - description: Perl port fowarding
       code: |
         Listen on port 9999 and forward the connection to localhost port 8080
         perl tcpforward.pl -l 10.10.10.218:9999 -c 127.0.0.1:8080

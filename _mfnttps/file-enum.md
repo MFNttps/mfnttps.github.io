@@ -19,7 +19,11 @@ functions:
         NIX
         find $directory -type f -name "*.sh" 2>/dev/null
 
+        find {directory-location} -group {group-name} -name {file-name}
+        
         grep <string> -irl <path>
+
+        find {directory-location} -user {user-name} -name {file-name}
 resources:
   https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7
   

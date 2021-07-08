@@ -62,6 +62,5 @@ functions:
         iexplorer.exe http://192.168.119.149/task.xml
 
 resources: |
-  https://raw.githubusercontent.com/MidnightSeer/scripts/master/wget-windows
 
 ---

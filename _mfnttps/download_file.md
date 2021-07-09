@@ -1,7 +1,7 @@
 ---
 functions:
   file-transfer:
-    - description: Download Files
+    - description: Download Files on Windows
       code: |
         +++++++++++POWERSHELL+++++++++++
 

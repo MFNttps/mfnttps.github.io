@@ -27,7 +27,7 @@ functions:
 
         NEW:
 
-        stty -icanon -echo
+        stty -icanon -echo; nc -nlvp 9999
         python -c 'import pty; pty.spawn("/bin/bash")'
 resources: |
   https://stackoverflow.com/questions/29317933/vi-over-netcat-session

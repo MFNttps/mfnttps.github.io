@@ -13,6 +13,7 @@ functions:
         - [ ] cat /etc/issue
         - [ ] cat /etc/*-release
         - [ ] cat /proc/version
+        - [ ] lsb_release -a
         - [ ] env
         - [ ] sudo -l
         - [ ] uname -a
@@ -55,5 +56,8 @@ functions:
           sleep 1
           old_process=$new_process
         done
+
+resources: |
+  https://github.com/jondonas/linux-exploit-suggester-2/blob/master/linux-exploit-suggester-2.pl
 ---
 

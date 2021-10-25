@@ -31,7 +31,9 @@ functions:
         - [ ] wmic product get name, version, vendor
         - [ ] wmic qfe get Caption, Description, HotFixID, InstalledOn
         - [ ] wmic service get name,displayname,pathname,startmode | findstr /i "auto"  #-- icacls to determine if the directory is writable.
+        - [ ] wmic service get name,displayname,pathname,startmode | findstr /i "auto" | findstr /V "Windows"  # filter out Windows services
         - [ ] wmic service list full
+        - [ ] ./accesschk64.exe -accepteula -c Apache2.4 -l   # service control permission check
         - [ ] mountvol
         - [ ] reg query HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Installer
         - [ ] reg query HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Installer
@@ -42,4 +44,5 @@ functions:
 resources: |
   https://github.com/itm4n/PrivescCheck
   https://book.hacktricks.xyz/windows/windows-local-privilege-escalation
+  https://docs.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite
 ---

@@ -1,7 +1,7 @@
 ---
 functions:
   privilege-escalation:
-    - description: Simplistic and standard checklist for linux privilege escalation, in no particular order
+    - description: Simplistic and standard checklist for windows privilege escalation, in no particular order
       code: |
         Feel free to copy paste the entire listing below
         - [ ] $env:UserName
@@ -30,8 +30,8 @@ functions:
         - [ ] driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object ‘Display Name’, ‘Start Mode’, Path
         - [ ] wmic product get name, version, vendor
         - [ ] wmic qfe get Caption, Description, HotFixID, InstalledOn
-        - [ ] wmic service get name,displayname,pathname,startmode | findstr /i "auto"  #-- icacls to determine if the directory is writable.
-        - [ ] wmic service get name,displayname,pathname,startmode | findstr /i "auto" | findstr /V "Windows"  # filter out Windows services
+        - [ ] wmic service get name,displayname,pathname,startmode | findstr /i "auto"  
+        - [ ] wmic service get name,displayname,pathname,startmode | findstr /i "auto" | findstr /V "Windows"  
         - [ ] wmic service list full
         - [ ] ./accesschk64.exe -accepteula -c Apache2.4 -l   # service control permission check
         - [ ] mountvol

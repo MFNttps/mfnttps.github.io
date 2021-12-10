@@ -3,7 +3,10 @@ functions:
   enumeration:
     - description: version fingerprinting
       code: |
-        nmap 192.168.206.42 -p -O 139,445 -vv -n -Pn --script="smb-os-discovery,smb-vuln\*"
+        nmap 192.168.206.42 -p -O 139,445 -vv -n -Pn --script="smb-os-discovery,smb-vuln*"
+    - description: enum4linux-ng
+      code: |
+        enum4linux-ng.py -AR 192.168.206.42 -v
 
     - description: smbclient
       code: |

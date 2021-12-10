@@ -17,4 +17,10 @@ functions:
     - description: crackmapexec
       code: |
         crackmapexec smb 192.168.206.42
+        crackmapexec smb 192.168.206.42 --shares
+        crackmapexec smb 192.168.206.42 --rid-brute
+
+    - description: smbmap
+      code: |
+        smbmap -H 192.168.206.42 -u '' -p ''
 ---

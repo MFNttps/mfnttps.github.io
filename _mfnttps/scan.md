@@ -4,8 +4,8 @@ functions:
   enumeration:
     - description: 
       code: |
-        scan <ip> | tee nmap.save
-        PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games:/home/kali/Documents/scripts/
+        scan <ip> (saves to $ip.nmap.save)
+        scan <ip>-<ip> (saves to $ip.nmap.save)
   script:
     - description:
       code: |

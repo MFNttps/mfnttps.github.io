@@ -181,7 +181,9 @@ functions:
         * UacMethodTcmsetup: Hybrid method (tcmsetup -> tcmsetup.exe.local -> comctl32.dll) 
           * Targets: x32/x64 Win7+ (UAC "0day" ¯\_(ツ)_/¯) 
         * UacMethodNetOle32: Hybrid method (mmc some.msc -> Microsoft.NET\Framework[64]\..\ole32.dll) 
-          * Targets: x32/x64 Win7+ (UAC "0day" ¯\_(ツ)_/¯) 
+          * Targets: x32/x64 Win7+ (UAC "0day" ¯\_(ツ)_/¯)
+
+      https://github.com/FuzzySecurity/PowerShell-Suite/tree/master/Bypass-UAC
 resources : |
   https://github.com/winscripting/UAC-bypass/blob/master/FodhelperBypass.ps1
   https://0x00-0x00.github.io/research/2018/10/31/How-to-bypass-UAC-in-newer-Windows-versions.html

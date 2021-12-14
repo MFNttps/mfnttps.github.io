@@ -172,16 +172,16 @@ functions:
       code: |
         . .\Bypass-UAC.ps1
         Bypass-UAC -Method UacMethodSysprep
-        * UacMethodSysprep: Original technique by Leo Davidson (sysprep -> cryptbase.dll) 
-          * Targets: x32/x64 Windows 7 & 8 
-        * ucmDismMethod: Hybrid method (PkgMgr -> DISM -> dismcore.dll) 
-          * Targets: x64 Win7+ (currently unpatched) 
-        * UacMethodMMC2: Hybrid method (mmc -> rsop.msc -> wbemcomn.dll) 
-          * Targets: x64 Win7+ (currently unpatched) 
-        * UacMethodTcmsetup: Hybrid method (tcmsetup -> tcmsetup.exe.local -> comctl32.dll) 
-          * Targets: x32/x64 Win7+ (UAC "0day" ¯\_(ツ)_/¯) 
-        * UacMethodNetOle32: Hybrid method (mmc some.msc -> Microsoft.NET\Framework[64]\..\ole32.dll) 
-          * Targets: x32/x64 Win7+ (UAC "0day" ¯\_(ツ)_/¯)
+        --UacMethodSysprep: Original technique by Leo Davidson (sysprep -> cryptbase.dll) 
+          --Targets: x32/x64 Windows 7 & 8 
+        --ucmDismMethod: Hybrid method (PkgMgr -> DISM -> dismcore.dll) 
+          --Targets: x64 Win7+ (currently unpatched) 
+        --UacMethodMMC2: Hybrid method (mmc -> rsop.msc -> wbemcomn.dll) 
+          --Targets: x64 Win7+ (currently unpatched) 
+        --UacMethodTcmsetup: Hybrid method (tcmsetup -> tcmsetup.exe.local -> comctl32.dll) 
+          --Targets: x32/x64 Win7+ (UAC "0day" ¯\_(ツ)_/¯) 
+        --UacMethodNetOle32: Hybrid method (mmc some.msc -> Microsoft.NET\Framework[64]\..\ole32.dll) 
+          --Targets: x32/x64 Win7+ (UAC "0day" ¯\_(ツ)_/¯)
 
       https://github.com/FuzzySecurity/PowerShell-Suite/tree/master/Bypass-UAC
 resources : |

@@ -15,6 +15,13 @@ functions:
         $task = New-ScheduledTask -Action $action -Principal $principal -Trigger $trigger -Settings $settings
         Register-ScheduledTask $taskname -InputObject $task
 
+
+        View task:
+        Get-ScheduledTask -TaskName backdoor
+
+        Run Task:
+        Start-ScheduledTask -TaskName backdoor
+
 resources : |
 
 ---

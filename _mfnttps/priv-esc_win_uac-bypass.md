@@ -168,7 +168,7 @@ functions:
                   }
               }
           }
-    - description: Bypass the Windows User Access Controal (UAC) [Script]
+    - description: Bypass the Windows User Access Controal (UAC) Script
       code: |
         . .\Bypass-UAC.ps1
         Bypass-UAC -Method UacMethodSysprep

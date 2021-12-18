@@ -23,4 +23,13 @@ functions:
     - description: smbmap
       code: |
         smbmap -H 192.168.206.42 -u '' -p ''
+
+    - description: smb enumeration wrapper
+        ./smbwrap.sh   <-- script is linked below
+        usage: 
+            ./smbwrap.sh <target> <port> [nocolors]
+        ./smbwrap.sh 192.168.71.53 445  
+
+resources: |
+  https://github.com/unkn0wnsyst3m/scripts/blob/master/smbwrap.sh
 ---

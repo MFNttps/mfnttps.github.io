@@ -25,6 +25,7 @@ functions:
         smbmap -H 192.168.206.42 -u '' -p ''
 
     - description: smb enumeration wrapper
+      code: |
         ./smbwrap.sh   <-- script is linked below
         usage: 
             ./smbwrap.sh <target> <port> [nocolors]

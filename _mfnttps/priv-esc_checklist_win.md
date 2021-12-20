@@ -34,6 +34,7 @@ functions:
         - [ ] wmic service get name,displayname,pathname,startmode | findstr /i "auto" | findstr /V "Windows"  
         - [ ] wmic service list full
         - [ ] wmic /output:services.htm /node:localhost service list full / format:htable
+        
         - [ ] get-process | select name, path, starttime, ID | ?{$_.Path -like '*appdata*'} | fl
         - [ ] ./accesschk64.exe -accepteula -c Apache2.4 -l   # service control permission check
         - [ ] mountvol

@@ -11,6 +11,7 @@ functions:
         - [ ] net user
         - [ ] net user <username>
         - [ ] hostname
+        - [ ] type (Get-PSReadlineOption).HistorySavePath
         - [ ] systeminfo
         - [ ] systeminfo | findstr /B /C:"OS Name" /C:"OS Version" /C:"System Type"
         - [ ] tasklist
@@ -34,7 +35,7 @@ functions:
         - [ ] wmic service get name,displayname,pathname,startmode | findstr /i "auto" | findstr /V "Windows"  
         - [ ] wmic service list full
         - [ ] wmic /output:services.htm /node:localhost service list full / format:htable
-
+        - [ ] reg query HKLM /f pass /t REG_SZ /s | findstr "CurrentPass"
         - [ ] get-process | select name, path, starttime, ID | ?{$_.Path -like '*appdata*'} | fl
         - [ ] ./accesschk64.exe -accepteula -c Apache2.4 -l   # service control permission check
         - [ ] mountvol

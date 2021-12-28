@@ -2,7 +2,8 @@
 functions:
   privilege-escalation: 
     - description: This may help you jump into a different user context
-
+      code: |
+        # Same as gain access
   gain-access:
     - description: H2 Database 1.4.199 - JNI Code Execution
       code: |

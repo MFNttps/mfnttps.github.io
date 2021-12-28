@@ -1,5 +1,7 @@
 ---
 functions:
+  gain-access:
+    - description: Create a user-defined function to pop a shell in teh context of the mysql user
   privilege-escalation:
     - description: Create a user-defined function to escalate privileges via mysql running as root
       code: |

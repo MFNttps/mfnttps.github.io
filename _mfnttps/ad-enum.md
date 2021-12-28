@@ -3,7 +3,8 @@ functions:
   enumeration:
     - description: Basic Active Directory Enumeration for Kerberos Tickets
       code: |
-      	./ad-enum.ps1
+
+        ./ad-enum.ps1
 
                               /^\
                               | |
@@ -39,9 +40,9 @@ functions:
             LIST DOMAIN ADMINS
         ---------------------------
         Usernames:
-        	 Albert
-        	 David
-        	 Administrator
+             Albert
+             David
+             Administrator
         ---------------------------
           LIST AD SERVICE ACCOUNTS
         ---------------------------
@@ -94,7 +95,6 @@ functions:
         Service    : MSSQLSvc
         DomainName : xor-app23.xor.com
         IPAddress  : 10.11.1.121
-
 
 
         ------------------------------------------------

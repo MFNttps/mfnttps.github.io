@@ -2,9 +2,7 @@
 functions:
   gain-access:
     - description: Create a user-defined function to pop a shell in teh context of the mysql user
-  privilege-escalation:
-    - description: Create a user-defined function to escalate privileges via mysql running as root
-      code: |
+    code: |
         Create a user-defined-function
         -------------------------------
         - [ ] Do you have write privileges to the db?
@@ -44,6 +42,11 @@ functions:
         Code execution
 
         select sys_eval('id');
+        
+  privilege-escalation:
+    - description: Create a user-defined function to escalate privileges via mysql running as root
+      code: |
+        # Same as gain access
 
 resources : |
   https://www.exploit-db.com/exploits/50236

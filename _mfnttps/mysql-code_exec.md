@@ -2,7 +2,7 @@
 functions:
   gain-access:
     - description: Create a user-defined function to pop a shell in teh context of the mysql user
-    code: |
+      code: |
         Create a user-defined-function
         -------------------------------
         - [ ] Do you have write privileges to the db?

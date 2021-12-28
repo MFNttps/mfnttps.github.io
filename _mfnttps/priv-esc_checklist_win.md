@@ -20,6 +20,7 @@ functions:
         - [ ] wmic process where name^="hfs.exe" call GetOwner
         - [ ] accesschk.exe -qvp -accepteula *
         - [ ] tasklist /SVC
+        - [ ] tasklist /v
         - [ ] ipconfig /all
         - [ ] route print
         - [ ] netstat -ano

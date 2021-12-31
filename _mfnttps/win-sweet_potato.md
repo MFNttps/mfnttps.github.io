@@ -20,6 +20,7 @@ functions:
 resources: |
   https://github.com/CCob/SweetPotato
   https://github.com/ohpe/juicy-potato
+  https://github.com/itm4n/PrintSpoofer
   https://github.com/ohpe/juicy-potato/blob/master/CLSID/README.md
   https://github.com/ivanitlearning/Juicy-Potato-x86/releases/tag/1.2
 ---

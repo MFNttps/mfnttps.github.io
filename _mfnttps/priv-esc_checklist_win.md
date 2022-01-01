@@ -88,16 +88,27 @@ functions:
         (1) wes.py --update 
         (2) systeminfo > systeminfo.txt
         (3) wes.py systeminfo.txt
+    
+    - description: Windows Exploit Suggester
+      code: |
+        pip install xlrd==1.2.0
+        wget https://raw.githubusercontent.com/SecWiki/windows-kernel-exploits/master/win-exp-suggester/windows-exploit-suggester.py
+        python2 windows-exploit-suggester.py --update
+        python2 windows-exploit-suggester.py --database 2021-12-31-mssb.xls --systeminfo sysinfo
 
     - description: List of sure fire ways to escalate
       code: |
-        - [ ] Is the account a "service account" with impersonatetoken or assignprimarytoken?
+        - [ ] Is the account a "service account" with impersonatetoken or assignprimarytoken? *potato ftw!
             https://mfnttps.github.io/mfnttps/win-sweet_potato/
             https://mfnttps.github.io/mfnttps/win-juicy_potato/
             https://mfnttps.github.io/mfnttps/win-print_spoofer/
-        - [ ] Is the latest KB patch (wmic qfe list) BEFORE March 2020 and port 445 is open?
+        - [ ] Is the latest KB patch (wmic qfe list) BEFORE March 2020 and port 445 is open? smb3LPE ftw!
             https://www.exploit-db.com/exploits/48537
             https://github.com/danigargu/CVE-2020-0796
+        - [ ] Unpatched after January 2020? systrace ftw!
+            https://itm4n.github.io/cve-2020-0668-windows-service-tracing-eop/
+            https://github.com/itm4n/SysTracingPoc
+
 
 resources: |
   https://github.com/itm4n/PrivescCheck
@@ -105,4 +116,5 @@ resources: |
   https://book.hacktricks.xyz/windows/windows-local-privilege-escalation
   https://github.com/bitsadmin/wesng
   https://docs.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite
+  https://github.com/SecWiki/windows-kernel-exploits/tree/master/win-exp-suggester
 ---

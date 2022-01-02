@@ -11,11 +11,11 @@ functions:
         chisel server -p 8000 --reverse
     - description: Chisel Socks5 Proxy
       code: |
-    	Client
-    	chisel.exe client 10.10.14.3:8000 R:socks
+        Client
+        chisel.exe client 10.10.14.3:8000 R:socks
 
-    	Server
-    	chisel server -p 8000 --socks5
+        Server
+        chisel server -p 8000 --socks5
 resources: |
   https://github.com/jpillora/chisel
   https://medium.com/geekculture/chisel-network-tunneling-on-steroids-a28e6273c683

@@ -39,6 +39,8 @@ functions:
         - [ ] wmic qfe list
         - [ ] wmic /output:services.htm /node:localhost service list full / format:htable
         - [ ] reg query HKLM /f pass /t REG_SZ /s | findstr "CurrentPass"
+        - [ ] reg query HKLM /f password /t REG_SZ /s
+        - [ ] reg query HKCU /f password /t REG_SZ /s
         - [ ] get-process | select name, path, starttime, ID | ?{$_.Path -like '*appdata*'} | fl
         - [ ] ./accesschk64.exe -accepteula -c Apache2.4 -l   # service control permission check
         - [ ] mountvol

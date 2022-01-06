@@ -27,6 +27,7 @@ functions:
         - [ ] netsh advfirewall show currentprofile
         - [ ] netsh advfirewall firewall show rule name=all
         - [ ] schtasks /query /fo LIST /v
+        - [ ] schtasks /query /fo LIST /v | findstr /C:"Task To Run:"
         - [ ] driverquery /v
         - [ ] driverquery /v | findstr /V /C:"Microsoft" /C:"Windows "
         - [ ] driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'Start Mode', Path
@@ -37,7 +38,9 @@ functions:
         - [ ] wmic service get name,displayname,pathname,startmode | findstr /i "auto" | findstr /V "Windows"  
         - [ ] wmic service list full
         - [ ] wmic qfe list
+        - [ ] wmic startup get Name,command 
         - [ ] wmic /output:services.htm /node:localhost service list full / format:htable
+        - [ ] Get-CimInstance Win32_StartupCommand | Select-Object Name, command, Location, User | Format-List 
         - [ ] reg query HKLM /f pass /t REG_SZ /s | findstr "CurrentPass"
         - [ ] reg query HKLM /f password /t REG_SZ /s
         - [ ] reg query HKCU /f password /t REG_SZ /s
@@ -48,6 +51,7 @@ functions:
         - [ ] reg query HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Installer
         - [ ] reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
         - [ ] netsh interface ipv4 show excludedportrange protocol=tcp
+        - [ ] cmdkey /list
 
     - description: itm4n PrivescCheck
       code: |

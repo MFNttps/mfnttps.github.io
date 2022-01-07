@@ -37,6 +37,7 @@ functions:
         - [ ] wmic service get name,displayname,pathname,startmode | findstr /i "auto"  
         - [ ] wmic service get name,displayname,pathname,startmode | findstr /i "auto" | findstr /V "Windows"  
         - [ ] wmic service list full
+        - [ ] accesschk64.exe -wuvc * /accepteula
         - [ ] wmic qfe list
         - [ ] wmic startup get Name,command 
         - [ ] wmic /output:services.htm /node:localhost service list full / format:htable
@@ -94,6 +95,7 @@ functions:
         (1) wes.py --update 
         (2) systeminfo > systeminfo.txt
         (3) wes.py systeminfo.txt
+            wes.py sysinfo -e -i "Elevation of Privilege"
     
     - description: Windows Exploit Suggester
       code: |
@@ -111,13 +113,14 @@ functions:
         - [ ] Is the latest KB patch (wmic qfe list) BEFORE March 2020 and port 445 is open? smb3LPE ftw!
             https://www.exploit-db.com/exploits/48537
             https://github.com/danigargu/CVE-2020-0796
-        - [ ] Unpatched after January 2020? systrace ftw!
-            https://itm4n.github.io/cve-2020-0668-windows-service-tracing-eop/
-            https://github.com/itm4n/SysTracingPoc
+        - [ ] Vulnerable to MS10-059?  Chimichurri ftw! <- older servers
+            https://github.com/egre55/windows-kernel-exploits/tree/master/MS10-059:%20Chimichurri
+            https://github.com/Re4son/Chimichurri
 
 
 resources: |
   https://github.com/itm4n/PrivescCheck
+  https://jlajara.gitlab.io/others/2020/11/22/Potatoes_Windows_Privesc.html
   https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS
   https://book.hacktricks.xyz/windows/windows-local-privilege-escalation
   https://github.com/bitsadmin/wesng

@@ -104,6 +104,10 @@ functions:
         python2 windows-exploit-suggester.py --update
         python2 windows-exploit-suggester.py --database 2021-12-31-mssb.xls --systeminfo sysinfo
 
+    - description: Sherlock
+        code: |
+          powershell -ep bypass -c ". ./Sherlock.ps1; Find-AllVulns"
+
     - description: List of sure fire ways to escalate
       code: |
         - [ ] Is the account a "service account" with impersonatetoken or assignprimarytoken? *potato ftw!
@@ -116,6 +120,10 @@ functions:
         - [ ] Vulnerable to MS10-059?  Chimichurri ftw! <- older servers
             https://github.com/egre55/windows-kernel-exploits/tree/master/MS10-059:%20Chimichurri
             https://github.com/Re4son/Chimichurri
+        - [ ] Older 2008 R2? Vuln to MS15-051?
+            https://github.com/SecWiki/windows-kernel-exploits/blob/master/MS15-051/MS15-051-KB3045171.zip
+
+
 
 
 resources: |
@@ -124,6 +132,7 @@ resources: |
   https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS
   https://book.hacktricks.xyz/windows/windows-local-privilege-escalation
   https://github.com/bitsadmin/wesng
+  https://github.com/rasta-mouse/Sherlock
   https://docs.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite
   https://github.com/SecWiki/windows-kernel-exploits/tree/master/win-exp-suggester
 ---

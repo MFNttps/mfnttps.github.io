@@ -105,8 +105,8 @@ functions:
         python2 windows-exploit-suggester.py --database 2021-12-31-mssb.xls --systeminfo sysinfo
 
     - description: Sherlock
-        code: |
-          powershell -ep bypass -c ". ./Sherlock.ps1; Find-AllVulns"
+      code: |
+        powershell -ep bypass -c ". ./Sherlock.ps1; Find-AllVulns"
 
     - description: List of sure fire ways to escalate
       code: |

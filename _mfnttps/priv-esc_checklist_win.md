@@ -70,6 +70,7 @@ functions:
 
         PS C:\Temp\> Get-Content .\PrivescCheck.ps1 | Out-String | IEX
         PS C:\Temp\> Invoke-PrivescCheck
+        powershell -c "Get-Content .\PrivescCheck.ps1 | Out-String | IEX;Invoke-PrivescCheck"
 
 
     - description: WinPeas
@@ -122,9 +123,6 @@ functions:
             https://github.com/Re4son/Chimichurri
         - [ ] Older 2008 R2? Vuln to MS15-051?
             https://github.com/SecWiki/windows-kernel-exploits/blob/master/MS15-051/MS15-051-KB3045171.zip
-
-
-
 
 resources: |
   https://github.com/itm4n/PrivescCheck

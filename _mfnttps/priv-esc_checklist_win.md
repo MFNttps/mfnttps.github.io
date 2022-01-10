@@ -53,6 +53,7 @@ functions:
         - [ ] reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
         - [ ] netsh interface ipv4 show excludedportrange protocol=tcp
         - [ ] cmdkey /list
+        - [ ] Are non-standard apps storing configs in appdata?
 
     - description: itm4n PrivescCheck
       code: |

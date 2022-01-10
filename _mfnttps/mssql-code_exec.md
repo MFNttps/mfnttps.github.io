@@ -15,5 +15,5 @@ functions:
         # Same as gain access
 
 resources : |
-  https://gist.github.com/MidnightSeer/6bcfacc3699dbac67e2f080b00b7b77b   <-- this sript gives you a fake shell with command execution
+  https://gist.github.com/unkn0wnsyst3m/6bcfacc3699dbac67e2f080b00b7b77b   <-- this sript gives you a fake shell with command execution
 ---

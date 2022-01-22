@@ -43,10 +43,11 @@ functions:
         - [ ] cat /etc/crontab
         - [ ] systemctl list-timers --all
         - [ ] grep "CRON" /var/log/cron.log
-        - [ ] Is CRON running but you can't tell what??  process monitoring (below script)
+        - [ ] Is CRON running but you can't tell what??  process monitoring (below scripts)
               nohup bash ./procmon.sh > procs.txt &
               cat procs.txt
           https://github.com/unkn0wnsyst3m/scripts/blob/master/procmon.sh
+          (CHOICE #1) https://github.com/DominicBreuker/pspy
 
         File Systems #NoRootSquash
         - [ ] cat /etc/exports | grep no_root_squash

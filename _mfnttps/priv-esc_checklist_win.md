@@ -45,12 +45,12 @@ functions:
         - [ ] reg query HKLM /f pass /t REG_SZ /s | findstr "CurrentPass"
         - [ ] reg query HKLM /f password /t REG_SZ /s
         - [ ] reg query HKCU /f password /t REG_SZ /s
-        - [ ] get-process | select name, path, starttime, ID | ?{$_.Path -like '*appdata*'} | fl
-        - [ ] ./accesschk64.exe -accepteula -c Apache2.4 -l   # service control permission check
-        - [ ] mountvol
         - [ ] reg query HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Installer
         - [ ] reg query HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Installer
         - [ ] reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
+        - [ ] get-process | select name, path, starttime, ID | ?{$_.Path -like '*appdata*'} | fl
+        - [ ] ./accesschk64.exe -accepteula -c Apache2.4 -l   # service control permission check
+        - [ ] mountvol
         - [ ] netsh interface ipv4 show excludedportrange protocol=tcp
         - [ ] cmdkey /list
         - [ ] Are non-standard apps storing configs in appdata?

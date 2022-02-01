@@ -24,7 +24,8 @@ functions:
         - [ ] lsmod
         - [ ] sudo -V
         - [ ] ls -al /etc/iptables/* -R
-        - [ ] ls -lah /etc/cron*        
+        - [ ] ls -lah /etc/cron*
+        - [ ] find / -iname *.bak 2>/dev/null
 
         User Enum:
         - [ ] whoami

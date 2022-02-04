@@ -26,6 +26,7 @@ functions:
         - [ ] ls -al /etc/iptables/* -R
         - [ ] ls -lah /etc/cron*
         - [ ] find / -iname *.bak 2>/dev/null
+        - [ ] find / -iname *.backup 2>/dev/null
 
         User Enum:
         - [ ] whoami
@@ -42,13 +43,19 @@ functions:
 
         Task Scheduling:
         - [ ] cat /etc/crontab
+        - [ ] cat /etc/cron.d/*
+        - [ ] cat /var/spool/cron/crontabs/*
+        - [ ] cat  /var/spool/cron/*
         - [ ] systemctl list-timers --all
         - [ ] grep "CRON" /var/log/cron.log
+          https://cronitor.io/cron-reference/how-to-list-all-cron-jobs
+
         - [ ] Is CRON running but you can't tell what??  process monitoring (below scripts)
               nohup bash ./procmon.sh > procs.txt &
               cat procs.txt
           https://github.com/unkn0wnsyst3m/scripts/blob/master/procmon.sh
           (CHOICE #1) https://github.com/DominicBreuker/pspy
+            nohup ./pspy64 -p -i 1000 > out &
 
         File Systems #NoRootSquash
         - [ ] cat /etc/exports | grep no_root_squash

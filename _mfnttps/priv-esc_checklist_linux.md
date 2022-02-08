@@ -106,7 +106,7 @@ functions:
           run setuid_bin
 
         FILE PERMISSION SEARCHING:
-        - [ ] find / -type f -perm -2 2>/dev/null | grep -v "^/proc/"                     #world writable
+        - [ ] find / -type f -perm -2 2>/dev/null | grep -v -i -E "proc|sys"                     #world writable
         - [ ] find / -user root -perm -002 -type f 2>/dev/null | grep -v "^/proc/"     #world writable ownd by root
         - [ ] ls -al $(find / -perm -1000 -type d 2>/dev/null)   # Sticky bit - Only the owner of the directory or the owner of a file can delete or rename here.
         - [ ] ls -al $(find / -perm -g=s -type f 2>/dev/null)    # SGID (chmod 2000) - run as the group, not the user who started it.
@@ -136,7 +136,7 @@ functions:
         # Output to file
         ./linpeas.sh -a > /dev/shm/linpeas.txt
 
-    - description: Linux Exploit Suggester
+    - description: Linux Exploit Suggester 2
       code: |
         perl linux-exploit-suggester.pl
 
@@ -166,6 +166,7 @@ functions:
 resources: |
   https://github.com/jondonas/linux-exploit-suggester-2/blob/master/linux-exploit-suggester-2.pl
   https://github.com/SecWiki/linux-kernel-exploits
+  https://github.com/mzet-/linux-exploit-suggester
   https://github.com/lucyoa/kernel-exploits
   https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS
   #c-shell: echo 'int main() { setgid(0); setuid(0); system("/bin/bash"); return 0; }' > shell.c 

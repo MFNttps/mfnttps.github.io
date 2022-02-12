@@ -60,6 +60,7 @@ functions:
 
     - description: Search for common credential locations
       code: |
+        - [ ] dir /s "*stickynotes*"
         - [ ] cmdkey /list
         - [ ] AD Svc Account Stored Password
                 Import-Module ActiveDirectory

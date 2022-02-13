@@ -144,5 +144,9 @@ functions:
         Files with caps / capabilities - see Proving Grounds' Escape box. 
 
 resources: |
-  https://raw.githubusercontent.com/jseidl/usernamer/master/usernamer.py
+  https://www.blakejarvis.com/oscp/oscp-things-to-try-when-stuck
+  https://coggle.it/diagram/Ya0bMjOIUnwA_6bo/t/enumeration-mindmap
+  https://mfnttps.github.io/mfnttps/priv-esc_checklist_linux/
+  https://mfnttps.github.io/mfnttps/priv-esc_checklist_win/
+
 ---

@@ -109,39 +109,39 @@ functions:
 
     - description: Linux Privesc
       code: |  
-		Privesc scripts aren't always right:
-		    e.g. a decoy exist item in crontab when sudo -l reveals a process dumper used to get credentials from memory.
+        Privesc scripts aren't always right:
+            e.g. a decoy exist item in crontab when sudo -l reveals a process dumper used to get credentials from memory.
 
-		If a process dumper is available, don't Google too deep. See if there are custom "password" processes to target.
+        If a process dumper is available, don't Google too deep. See if there are custom "password" processes to target.
 
-		su root is the best way to switch to root if you have a password but aren't in root group.
+        su root is the best way to switch to root if you have a password but aren't in root group.
 
-		Identify all users. Attempt to brute force auth ssh if /home or /etc/passwd is pulled.
+        Identify all users. Attempt to brute force auth ssh if /home or /etc/passwd is pulled.
 
-		Always run echo $PATH to show available commands/locations.
+        Always run echo $PATH to show available commands/locations.
 
-		Docker - see Proving Grounds' Sirol/Escape box.
+        Docker - see Proving Grounds' Sirol/Escape box.
 
-		If a user is in a group, it's probably for a reason.
+        If a user is in a group, it's probably for a reason.
 
-		Fully understand software that's related to a user's group (e.g. fail2ban group).
-		
-		Use pspy to spy on processes and cronjobs you may not be able to see
-		
-		Run groups.
-		
-		cat ~/.profile && cat ~/.bashrc.
-		
-		If running as www-data, always inspect the contents of html or the application, look for commented out passwords.
-		
-		If another user exist, always su [user] with no password and their name as the password.
-		
-		Check /var/backups.
-		
-		Custom SUIDs won't be highlighted as linpeas and other privesc scripts don't know what they are.
-		    Examine each and every SUID!
+        Fully understand software that's related to a user's group (e.g. fail2ban group).
+        
+        Use pspy to spy on processes and cronjobs you may not be able to see
+        
+        Run groups.
+        
+        cat ~/.profile && cat ~/.bashrc.
+        
+        If running as www-data, always inspect the contents of html or the application, look for commented out passwords.
+        
+        If another user exist, always su [user] with no password and their name as the password.
+        
+        Check /var/backups.
+        
+        Custom SUIDs won't be highlighted as linpeas and other privesc scripts don't know what they are.
+            Examine each and every SUID!
 
-		Files with caps / capabilities - see Proving Grounds' Escape box. 
+        Files with caps / capabilities - see Proving Grounds' Escape box. 
 
 resources: |
   https://raw.githubusercontent.com/jseidl/usernamer/master/usernamer.py

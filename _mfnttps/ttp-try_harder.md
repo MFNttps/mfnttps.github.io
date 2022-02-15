@@ -66,6 +66,8 @@ functions:
         - [ ] Try both GET and POST methods for all URLs given that may be blocking data via a particular HTTP method.
               Fuzz parameters with ffuf.
 
+        - [ ] Try the request in curl!
+
         - [ ] Examine response headers for minor custom errors.
 
         - [ ] Use multiple tools - feroxbuster, wfuzz (subdomains), nikto, wpscan, droopscan, nmap http

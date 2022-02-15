@@ -13,7 +13,7 @@ functions:
 
         - [ ] Remember to search for subdomains
 
-        - [ ] Example the mind map for path ideas: https://coggle.it/diagram/Ya0bMjOIUnwA_6bo/t/enumeration-mindmap
+        - [ ] Examine the mind map for path ideas: https://coggle.it/diagram/Ya0bMjOIUnwA_6bo/t/enumeration-mindmap
 
         --> Use multiple privesc scripts <--
 
@@ -68,7 +68,9 @@ functions:
 
         - [ ] Examine response headers for minor custom errors.
 
-        - [ ] Use multiple tools - feroxbuster, wfuzz (subdomains), nikto, wpscan, droopscan, nmap http, 
+        - [ ] Use multiple tools - feroxbuster, wfuzz (subdomains), nikto, wpscan, droopscan, nmap http
+
+        - [ ] Look at the enumeration-mindmap https://coggle.it/diagram/Ya0bMjOIUnwA_6bo/t/enumeration-mindmap
 
         Getting a shell
         - [ ] To save time, upload a web shell instead of manually executing PHP commands.

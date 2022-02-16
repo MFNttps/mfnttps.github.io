@@ -55,6 +55,8 @@ functions:
         ffuf -w cmd-wordlist.txt -u 192.168.1.1/under_construction/forgot.php?email=abcdFUZZde
         See Proving Grounds' Hetemit for an example
 
+        - [ ] ALWAYS COMMAND INJECT WITH SLEEP: sleep+10 sleep%2010
+
         - [ ] When brute forcing credentials, guess the software name as the username and password.
 
         - [ ] When dealing with file type uploads, try specifying just the header like GIF89a;. Files pulled from Google Images could be made different and not identified as a GIF.

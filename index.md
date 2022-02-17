@@ -15,7 +15,7 @@ If you want to contribute, then [contribute]
 
 Many of these techniques, tactics, procedures...whatever you want to call them, were found, built on, and created during prep for OSCP: this included Proving Grounds, HacktheBox, and Try and Hack Me.  I hope you enjoy this as much as I do!
 
-Oh, one last thing, check out my [enumeration mind map] https://coggle.it/diagram/Ya0bMjOIUnwA_6bo/t/enumeration-mindmap!
+Oh, one last thing, check out my [enumeration mind map]: https://coggle.it/diagram/Ya0bMjOIUnwA_6bo/t/enumeration-mindmap!
 
 
 ***work in progress***

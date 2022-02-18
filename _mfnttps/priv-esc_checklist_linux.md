@@ -112,8 +112,9 @@ functions:
         - [ ] ls -al $(find / -perm -g=s -type f 2>/dev/null)    # SGID (chmod 2000) - run as the group, not the user who started it.
         - [ ] ls -al $(find / -perm -u=s -type f 2>/dev/null)    # SUID (chmod 4000) - run as the owner, not the user who started it.
         - [ ] find / -perm -u=s -type f -ls 2>/dev/null
-        - [ ] find / -xdev -user root -perm -o+w -type f 2>/dev/null
-        - [ ] find / -xdev -group admin -perm -o+w -type f 2>/dev/null
+        - [ ] find / -xdev -user root -perm -o+w -type f 2>/dev/null | grep -v -i -E "proc|sys"
+        - [ ] find / -xdev -user root -perm -o+w -type d 2>/dev/null | grep -v -i -E "proc|sys"
+        - [ ] find / -xdev -group admin -perm -o+w -type f 2>/dev/null | grep -v -i -E "proc|sys"
         
 
         QUICK WINS:

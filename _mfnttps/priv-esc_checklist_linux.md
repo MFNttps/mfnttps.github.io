@@ -63,12 +63,17 @@ functions:
               gcc shell.c -o shell; chmod +s+x shell --> add to share
 
         Password Hunting:
-        - [ ] grep --color=auto -rnw '/' -ie "PASSWORD=" 2>/dev/null
+        - [ ] grep --color=auto -rnw '.' -ie "PASSWORD=" 2>/dev/null #search specific folders
+        - [ ] grep --color=auto -rnw '.' -ie "PASSWORD:" 2>/dev/null #search specific folders
+        - [ ] grep -Rinw . -e 'password' 2>/dev/null #search specific folders
         - [ ] locate pass | more
         - [ ] find / -name id_rsa 2>/dev/null
-        - [ ] find . -type f -exec grep --color=auto -Hrnwie "PASSWORD" {} 2> /dev/null \;  #search specific folders
+        - [ ] find . -type f -exec grep --color=auto -Hrnwie "PASSWORD" {} 2>/dev/null \;  #search specific folders
         - [ ] find / -iname *passw* 2>/dev/null
         - [ ] find / -iname *passw* 2>/dev/null | grep -v -E "/lib/systemd/|boot|/var/lib/dpkg/|/usr/share/|/usr/lib/"
+
+        - [ ] find . -name "*setting*" 2>/dev/null  # | grep -vE "/usr/|/etc/"  to exclude folders
+        - [ ] find . -name "*config*" 2>/dev/null # | grep -vE "/usr/|/etc/"  to exclude folders
 
         (Shared Library) LD_PRELOAD:
         - [ ] sudo -l  #--> is LD_PRELOAD in the sudo permissions?

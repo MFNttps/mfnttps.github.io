@@ -4,6 +4,13 @@ functions:
 
     - description: General
       code: |
+
+        - [ ] Are you able to browse logs, if so, try php injection
+
+        - [ ] Do error messages contradict nmap version/software output?  apache vs nginx
+
+        - [ ] If you have php source, look for "include" or "get_file_contents"
+
         - [ ] Monitor web requests with BurpSuite
 
         - [ ] Re-look at all open ports and services, don't be rabbit holed; if there are avail logon service, maybe you need to find credentials.

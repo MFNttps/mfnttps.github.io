@@ -4,6 +4,7 @@ functions:
     - description: Enumerate LDAP
       code: |
         ldapsearch -v -x -b "DC=hutch,DC=offsec" -H "ldap://192.168.165.122"
+        ldapsearch -D "cn=binduser,ou=users,dc=domain,dc=htb" -w "password" -b "dc=domain,dc=htb" -H ldap://127.0.0.1
 
     - description: Grab Local Administrator Password Solution (LAPS)
       code: |

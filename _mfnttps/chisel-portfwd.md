@@ -15,7 +15,7 @@ functions:
         chisel.exe client 10.10.14.3:8000 R:socks
 
         Server
-        chisel server -p 8000 --socks5
+        chisel server -p 8000 --socks5 --reverse
 resources: |
   https://github.com/jpillora/chisel
   https://medium.com/geekculture/chisel-network-tunneling-on-steroids-a28e6273c683

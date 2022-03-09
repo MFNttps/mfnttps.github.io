@@ -11,6 +11,7 @@ functions:
         - [ ] net user
         - [ ] net user <username>
         - [ ] hostname
+        - [ ] wevtutil qe system "/q:*[System [(EventID=1074)]]" /rd:true /f:text /c:1    #last shutdown time
         - [ ] type (Get-PSReadlineOption).HistorySavePath
         - [ ] systeminfo
         - [ ] systeminfo | findstr /B /C:"OS Name" /C:"OS Version" /C:"System Type"

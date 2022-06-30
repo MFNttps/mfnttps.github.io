@@ -9,6 +9,10 @@ script:
   label: Script
   description: The technique is not standalone and depends on other techniques.
 
+persistence:
+  label: Persistence
+  description: Maintain a certain level of access even after a reboot.
+
 pivoting:
   label: Pivoting
   description: It can help redirect traffic to otherwise unreachable end-points.

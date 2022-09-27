@@ -4,8 +4,8 @@ functions:
     - description: Decode Saved Passwords
       code: |
            Required registry keys
-        HKEY_CURRENT_USER\Software\Martin Prikryl\WinSCP 2\Sessions\*
-        > python winscp-deobfuscator.py --hostname <ip> --username <username> --hash <encoded value>
+        HKEY_CURRENT_USER\Software\Martin Prikryl\WinSCP 2\Sessions\
+        python winscp-deobfuscator.py --hostname ip --username username --hash encodedvalue
           ==================================================
                 WinSCP deobfuscation from command line      
           ==================================================

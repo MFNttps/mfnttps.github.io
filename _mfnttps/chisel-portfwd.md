@@ -16,6 +16,11 @@ functions:
 
         Server
         chisel server -p 8000 --socks5 --reverse
+    - description: Compile chisel with arguments
+      code: |
+        Client
+        garble -literals -seed=random -tiny build -ldflags "-s -w -X main.subcmd=client -X config.MaxRetryCount=5 -X config.MaxRetryInterval=5 -X main.port=443 -X main.host=10.0.0.18"
+
 resources: |
   https://github.com/jpillora/chisel
   https://medium.com/geekculture/chisel-network-tunneling-on-steroids-a28e6273c683

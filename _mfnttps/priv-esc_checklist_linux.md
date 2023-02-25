@@ -5,6 +5,10 @@ functions:
       code: |
         Feel free to copy paste the entire listing below
         System Info Enum:
+
+        fix PATH
+        PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+
         - [ ] uname -a
         - [ ] cat /etc/issue
         - [ ] cat /etc/*-release

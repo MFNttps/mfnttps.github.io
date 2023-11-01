@@ -18,6 +18,13 @@ functions:
         chisel server -p 8000 --socks5 --reverse
     - description: Compile chisel with arguments
       code: |
+        
+        var cmdlineArgs string  //add
+        func main() {
+          cmdArgs := strings.Split(cmdlineArgs, " ")   //add
+          os.Args = append(os.Args, cmdArgs...)    //add
+
+
         Client
         garble -literals -seed=random -tiny build -ldflags "-s -w -X main.subcmd=client -X config.MaxRetryCount=5 -X config.MaxRetryInterval=5 -X main.port=443 -X main.host=10.0.0.18"
 

@@ -26,7 +26,7 @@ functions:
 
 
         Client
-        garble -literals -seed=random -tiny build -ldflags "-s -w -X main.subcmd=client -X config.MaxRetryCount=5 -X config.MaxRetryInterval=5 -X main.port=443 -X main.host=10.0.0.18"
+        GOOS=linux garble -literals -seed=random -tiny build -trimpath -ldflags "-s -w -X 'main.cmdlineArgs=client 165.232.113.164:8080 R:socks'"
 
 resources: |
   https://github.com/jpillora/chisel

@@ -26,7 +26,7 @@ functions:
 
 
         Client
-        GOOS=linux garble -literals -seed=random -tiny build -trimpath -ldflags "-s -w -X 'main.cmdlineArgs=client 165.232.113.164:8080 R:socks'"
+        GOOS=linux garble -literals -seed=random -tiny build -trimpath -ldflags "-s -w -X 'main.cmdlineArgs=client 192.168.2.200:8080 R:socks'"
 
 resources: |
   https://github.com/jpillora/chisel

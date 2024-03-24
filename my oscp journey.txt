@@ -1,0 +1,50 @@
+﻿Alright Team - it's my turn to give you my OSCP Journey.  For those that didn't make it the first time around, I hope this helps boost your spirits and pumps you up to do another round!
+
+My First OSCP Attempt:
+I first took the OSCP journey in the beginning of COVID (Apr 2020) and took my exam July 2020
+My exam - I tackled the buffer overflow in about 30 min, breezed through my first easy box in 30 min, hit a brick wall for the rest of the exam
+Tools I heavily (dont do this!!) leaned on: Legion, Sparta, Gobuster, nikto
+Platforms I leaned on: Gtfobins, exploit-db, some htb, mostly automated scanning
+
+My Second OSCP Attempt:
+October 2021 - February 2020
+Tools I leaned on: scanwrap, smbwrap (both my own), tidebreaker (404 bypass - my own), feroxbuster
+Platforms I leaned on: coggle (my enumeration mind map), my own mfnttps, my own github, hacktricks, linpeas, heavy htb, some tryhackme, HEAVY proving grounds, the cyber mentor (privesc classes)
+
+What went wrong on my first attempt?  
+I relied too much on other people's work, tools, techniques, how others triage and enumerate - i didnt create my own rhythm or rhyme
+
+What do I think I did that worked the 2nd time?
+I built my own toolkit to even include my own website (may be too much more most, but this really helped me).  The latter was a product of me losing all work to a corrupt hard drive after a Win11 upgrade, BUT it was for the better.  I "cloned" the gtfobins site, reworked it a little, and fit it to my own liking (mfnttps).
+I used this site to categorize what was in my head and how my brain organized stuff.  Bottom line here, do what works for you.  If you don't know (like me), the only way you will learn it is through experience.  Put yourself out there.  Be active in the htb forums, ask senior htb players questions, ask how they learned about certain crazy exploits & vulns - you'll find that a lot of the "gut feeling" is just experience and seeing the exploit before or a vulnerability SIMILAR to the one you are facing.
+
+Did I do anything different to prepare this time?
+100% yes!  I think the ONLY tools I relied on were nmap and various SMB tools and some directory busting (feroxbuster) – eventually I started to learn what to look for.  Other than that, it was manual enumeration.  After running a lot of htbs (retired and new) and a few proving grounds machines, i realized i was "rinse repeating" quite a bit!  So then I decided to make my own checklist (literally with checkboxes - because I also then learned I got distracted, I need a way to keep track).  It is in my mfnttps site.  I stress though, it is mine, I made it for myself, make what works for you.  
+
+Stuff I wish I knew:
+Gobuster is NOT recursive (I feel like an idiot with this one).  After the 1st attempt, I HEAVILY search for a good replacement and cool enough landed on Feroxbuster (writting by epi, Ben Risher, a 315 Det2 alum now 390th).
+I wish I knew about "hacktricks."  But really I learned to crawl githubs.  If I consistently ran into the same tool creators, I started crawling their pages - many I quickly learned have blogs like the linpeas creator!
+I wish I knew about "PrivescCheck."  This is a powershell priv esc script - works extremely well – this is still my go to.  itm4n/PrivescCheck: Privilege Escalation Enumeration Script for Windows (github.com)
+Crawling his blog, I learned about printspoofer and some DLL hijacks, it was fun!
+WADCOMs - same format as MFNTTPs, LOLBAS, GTFOBINs, focuses on Windows – they are all on my mindmap.
+TOKENS!  This is for Windows, but man oh man, such a ripe ground for PrivEsc possibilities.  Learn all the potatoes!  Learn what to do when you see DebugPrivilege or BackupPrivlege etc etc  Learn which potatoes don’t work on new systems.  I don’t really like mashed potatoes…but I like..juicy ones??
+Freaking impacket tool suite - I only used the *exec tools at first, LEARN WHAT ALL OTHER OTHERS DO OMFG they are amazing.  BUT! I manually learned the techniques BEFORE I turned to any scripts.  Htb and proving grounds were helpful here.
+
+Stuff I wish I didn't lean on:
+Freaking automated scanning.  I actually contributed to Sparta and Legion on Github thinking they were the new hotness, but man did they set me up for failure - there is such a thing as too much data.  Those tools were built for penetration tests, events that give you more than 24 hrs.  I HIGHLY recommend sticking with good 'ol nmap and maybe write your own wrappers like I did.
+
+If I had to give 3 tips, what would they be:
+(1) Practice: The Cyber Mentor PrivEsc Videos - worth the $30 for unlimited, just cancel when done.  TJNULL's list for HTB and Proving Grounds, then the updated boxes in HTB (still TJNull’s list) - you can practice your moves you learned in the The Cyber Mentor videos here.  I found proving grounds to be the closest to the PWK material, but HTB forced me to create my own tools and really made me ask for help in the forums.  I started PMing people, the community there is amazing!  Everyone helps each other - everyone wore the same shoes at one point - which is what I love about this, everyone shares similar experiences.  So, to recap, start with the OSCP labs, screw the internal pivots, take’s way too much time, waiting for scan results…the labs introduce you to the basics, then follow The Cyber Mentor, then follow TJNULL.
+
+(2) Find what works for you.  Create a checklist.  Follow the checklist BEFORE you pull out the big guns and use the priv esc scripts.  This gives you practice AND you'll start seeing things in the PrivEsc script output you wouldnt have otherwise understood.  It puts context into what you see in the output.  I can't stress this enough.  Once you start hitting boxes and taking names (capturing flags) THEN start to use privesc scripts.  Find your rhythme and rhyme and STICK to it- privesc script help but should NOT replace manual enumeration.
+
+(3) Have fun - don't sweat it.  What do I mean?  I had to humble myself - I let people online see my dumb self asking the dumb questions.  If I struggled for a set period of time (this time block is relative, for me, 30 min max - different for everyone, but helpful to learn for the exam) I would move to something else OR i picked up an Ippsec video...watched JUST A LITTLE, paused, tried to figure it out for 10 min, played the video, quickly paused again, etc - I told myself I had to beat him, I had to get to the answer before I pressed play again, just a little more, just a little more, then PAUSE, I used his new tips and info to try again, maybe even solve it before I pressed play again – it was like a mental race.  This is how I approached all my videos - it worked for me.
+
+(4) Okay, 1 more, this tip I heard in a video 1 day before the exam, best tip so far.  I heard it and thought "oh yea duh, i know, I can do that" but I didnt realize how much it applied in the exam.  Know how to do the SAME things 3-4 different ways.  You'll run into obstacles that prevent you from using curl, wget, nc, iwr, certutil, etc etc.  You need to know how to use AS MANY transfer methods as possible (as an example, but this also goes for kernel exploit, sqli, command injection, etc).  Same goes for authentication vectors.  You'll learn this with htb and other online platforms.  The exam is limited so it HAS to give you clues or puzzle pieces that go together.  Maybe you find creds but you only have port 80 open, well then it must be for web auth of some kind.  But you dont have any admin panels?  Well then that means you need to discover them - things like that.  Another example, I started ONLY using certutil for downloads because more often than not, that tool was there (I only learned this after many many different boxes).  Many other techniques were just unreliable (to me – again, you need to find what works for you, but then know all the alternatives).
+
+Okay, the long awaited format change.  I actually loved it.  It was straight forward for me, BUT ONLY because I was hoping to run into this on the first attempt (I didnt know there werent any AD boxes before).  If you can master the svcorp and xor domains in the labs, you'll do find here IF you can gain access.  The way you get in is like any other box, enumerate, check for exploits, enumerate, check for exploits.
+
+
+Extra - When I find a web port, I do dir discovery, while the discovery is going I manually click around, i then run nikto, if I find a subdomain (most likely from clicking around), I use wffuz to bruteforce it AFTER configuring /etc/hosts, then if still nothing, I open burpsuite and run through any POST requests, then GET requests - bottom line, this works for me, I found a habit, you'll find what works for you.  The "I'll do it when I see it" technique, it failed me.  I learned quickly that you don't know what you don't know, so best watch videos, read MULTPLE write ups of the same challenging boxes.  Better to get the answers when you are practicing so the next you might be thinking "oh I saw that!  let me research this, there’s  something here."
+
+Extra Extra - you WILL feel defeated, but use that to propel yourself.  Try Harder is fake news - try something different.  I asked for so much help from so many random people – I encourage you to do the same.
